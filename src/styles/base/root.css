@@ -1,0 +1,90 @@
+:root {
+  --bkg: #242424;
+  --text: #F6F4D2;
+  --green: #768965;
+  --red: #A44A3F;
+
+  --fade: #242424cf;
+
+  --header-height: 170px;
+  --header-height-mobile: 130px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 140%;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Lato', sans-serif;
+  color: var(--text);
+  background-color: var(--bkg);
+  font-size: 1rem;
+}
+
+#root {
+  min-height: 100svh;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-root {
+  min-height: 100svh;
+}
+
+main {
+  flex: 1;
+  min-height: 75svh;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @media (max-width: 450px) {
+    margin: 0;
+  }
+}
+
+button,
+nav,
+a {
+  /* font: inherit; */
+  /* color: inherit; */
+  /* border: none; */
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+nav,
+button,
+a {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 7%;
+  font-size: 1.2rem;
+  color: var(--text);
+  background-color: var(--bkg);
+
+}
+
+/* .active {
+  filter: drop-shadow(0px 2px 3px rgb(255, 0, 0));
+} */
+
+.logo {
+  width: 100%;
+  height: 100%;
+}

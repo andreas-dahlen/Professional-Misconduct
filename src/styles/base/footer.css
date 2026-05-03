@@ -1,0 +1,7 @@
+footer {
+  width: 100%;
+  min-height: 100px;
+  position: relative;
+  background: var(--green);
+  box-shadow: 0 0 120px 150px var(--green);
+}
