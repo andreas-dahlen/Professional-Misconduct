@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router'
 import hero from '../assets/hero.png'
 
 export default function FrontPage() {
@@ -8,6 +9,14 @@ export default function FrontPage() {
         <img src={hero} className="hero" alt="hero img"></img>
       </div>
       <main className='main-front-page'>
+
+        <p className='slogan'> Ready to turn your <br />workspace upside down?</p>
+
+        <NavLink to="/products" role="button" className="big-button">Products</NavLink>
+
+        <p className='quote'>“It has all the essentials for the <br /> professionally unhinged.” - Bob</p>
+
+
       </main>
 
     </>

@@ -5,23 +5,25 @@ import { NavLink } from 'react-router'
 export default function Footer() {
 
   return (
-    <footer>
+    <>
+      <footer>
+        <NavLink to='/' className="navlink-logo-f">
+          <img src={logo} className="logo" alt="logo of Professional Misconduct"></img>
+        </NavLink>
 
+        <div className='footer-flexbox'>
+          <p>Sjöviksgatan <br />
+            14B 417 56<br />
+            Gothenburg<br />
+            Sweden</p>
 
-      <NavLink to='/' className="navlink-logo-h">
-        <img src={logo} className="logo" alt="logo of Professional Misconduct"></img>
-      </NavLink>
+          <p>Contact us: <br />
+            0123 456 789 <br />
+            mischief@gmail.com</p>
+        </div>
 
-      <p>Sjöviksgatan 14B
-        417 56
-        Gothenburg
-        Sweden</p>
-
-      <p>Contact us:
-        0123 456 789
-        mischief@gmail.com</p>
-
-      <NavLink to='/login'>login</NavLink>
-    </footer>
+        <NavLink to='/login' className="login-button">login</NavLink>
+      </footer>
+    </>
   )
 }
