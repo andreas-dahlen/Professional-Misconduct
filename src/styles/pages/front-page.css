@@ -7,7 +7,7 @@
   z-index: -1;
 
   @media (max-width: 460px) {
-    --header-height: 244px;
+    --header-height: var(--header-height-mobile);
   }
 
   &::after {
@@ -17,8 +17,7 @@
     left: 0;
     width: 100%;
     height: 40%;
-    /* how much to fade */
-    background: linear-gradient(to bottom, transparent, var(--bkg));
+    background: linear-gradient(to bottom, transparent, var(--bkg) 90%);
   }
 }
 
@@ -31,9 +30,34 @@
 
 
 .main-front-page {
-  margin-top: calc(-1 * 51vh);
+  margin-top: calc(-1 * 65vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @media (max-width: 460px) {
-    margin-top: calc(-1 * 43vh);
+  .big-button {
+    margin: 2.5rem 0 4rem;
   }
+}
+
+.slogan {
+  position: relative;
+  background-color: var(--fade);
+  padding: 0.3em 1rem 0.6rem 1rem;
+  border-radius: 14px;
+  font-size: 1.2rem;
+  margin-top: 10.8rem;
+
+  &::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+  }
+}
+
+.quote {
+  margin-bottom: 10em;
 }

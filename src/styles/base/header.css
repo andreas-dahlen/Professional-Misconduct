@@ -1,31 +1,45 @@
 header {
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: var(--header-height);
-  background-color: var(--fade);
-  box-shadow: 0 0 40px 40px var(--fade);
+  background: linear-gradient(to bottom, var(--bkg) 20%, var(--fade) 65%, transparent 90%);
+  /* box-shadow: 0 0 40px 40px var(--fade); */
+  padding-bottom: 0px;
 
+  &>* {
+    z-index: 1;
+  }
 
-  @media (max-width: 460px) {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    mask-image: linear-gradient(to bottom, black 50%, transparent);
+  }
+
+  @media (max-width: 540px) {
     flex-direction: column;
   }
 }
 
 .navlink-logo-h {
   position: relative;
-  display: block;
-  max-width: 180px;
-  width: min(180px, 25vw);
-  background: none;
+  width: min(180px, 30vw);
   display: flex;
+  padding: 10px;
   margin-top: 10px;
-  border-radius: 100em;
-  /* box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.726);
-  background: rgba(0, 0, 0, 0.772); */
+  background: radial-gradient(circle, var(--bkg) 60%, transparent 67%);
 
-  @media (max-width: 460px) {
-    min-width: 130px;
+  &.active {
+    background: radial-gradient(circle, var(--bkg) 60%, var(--red-fade) 10%, transparent 70%);
+    box-shadow: none;
+  }
+
+  @media (max-width: 540px) {
+    min-width: 160px;
   }
 }
 
@@ -33,14 +47,14 @@ header {
   display: flex;
   gap: 30px;
   justify-content: space-between;
-  width: 20%;
+  width: 24%;
   margin-top: 25px;
 
   @media (max-width: 1200px) {
     width: auto;
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 540px) {
     flex-direction: column;
     gap: 0.5rem;
     margin-top: 6px;
