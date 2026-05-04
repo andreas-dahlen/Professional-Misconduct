@@ -2,4 +2,5 @@
 @import './base/header.css';
 @import './base/buttons.css';
 @import './base/footer.css';
-@import './pages/front-page.css'
+@import './pages/front-page.css';
+@import './pages/product-page.css';
