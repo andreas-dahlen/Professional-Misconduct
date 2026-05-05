@@ -2,22 +2,41 @@ import ProductItem from '../components/products/ProductItem';
 import { placeholderList } from '../data/placeholderList';
 import { setDBProducts } from '../data/crud';
 import { useProductStore } from '../hooks/useProductStore';
+import Fuse from 'fuse.js';
+import { useMemo, useState } from 'react';
 
 
 export default function ProductPage() {
 
   const { products } = useProductStore()
 
+  const [search, setSearch] = useState('')
+  const myFuse = useMemo(() => {
+    return new Fuse(products, {
+      keys: [
+        { name: 'name', weight: 2 },
+        { name: 'profession', weight: 1 }
+      ],
+      includeScore: true,
+      threshold: 0.3,
+    })
+  }, [products])
+  const results = search
+    ? myFuse.search(search).map(r => r.item)
+    : products
+
   return (
     <main>
       <h1>find you pick!</h1>
-      <input type="search" />
-      <search>hello</search>
+      <search>
+        <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <p>{search}</p>
+      </search>
 
       <button onClick={() => setDBProducts(placeholderList)}> seed products</button>
 
       <div className='product-grid'>
-        {products.map((item) => (
+        {results.map((item) => (
           <ProductItem
             key={item.id}
             id={item.id}
