@@ -12,6 +12,7 @@ export default function ProductPage() {
     <main>
       <h1>find you pick!</h1>
       <input type="search" />
+      <search>hello</search>
 
       <button onClick={() => setDBProducts(placeholderList)}> seed products</button>
 

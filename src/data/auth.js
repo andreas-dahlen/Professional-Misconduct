@@ -6,7 +6,7 @@ export async function signIn({ email, password }) {
     const signInData = await signInWithEmailAndPassword(auth, email, password)
 
     return {
-      emil: email,
+      email: email,
       uid: signInData.user.uid
     }
   } catch (error) {
@@ -14,3 +14,5 @@ export async function signIn({ email, password }) {
     return null
   }
 }
+
+//TODO: sign in med google!

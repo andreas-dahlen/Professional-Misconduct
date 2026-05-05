@@ -5,7 +5,7 @@ import CartPage from '../pages/CartPage.jsx'
 import LoginPage from '../pages/LoginPage.jsx'
 import LoadingPage from '../pages/LoadingPage.jsx'
 import AdminPage from '../pages/AdminPage.jsx'
-import ProductItemPage from '../pages/ProductItemPage.jsx'
+import ItemPage from '../pages/ItemPage.jsx'
 
 export const routing = [
   {
@@ -20,7 +20,7 @@ export const routing = [
       {
         //:name/:id' is called a slug
         path: '/products/:name/:id',
-        Component: ProductItemPage
+        Component: ItemPage
       },
       {
         path: '/cart',

@@ -1,6 +1,3 @@
-
-
-
 export const placeholderList = [
   {
     id: 1,

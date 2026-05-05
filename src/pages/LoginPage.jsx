@@ -22,11 +22,10 @@ export default function LoginPage() {
   return (
     <main>
       <form>
-        <label htmlFor='email'>Username</label>
+        <label htmlFor='email'>Email</label>
         <input
           id='email'
-          label="Email"
-          type="text"
+          type="email"
           value={username}
           className={`def-input ${error && 'input-error'}`}
           onChange={(e) => setUsername(e.target.value)}
@@ -36,7 +35,6 @@ export default function LoginPage() {
         <label htmlFor='password'> Password</label>
         <input
           id='password'
-          label="Password"
           type="password"
           value={password}
           className={`def-input ${error && 'input-error'}`}
