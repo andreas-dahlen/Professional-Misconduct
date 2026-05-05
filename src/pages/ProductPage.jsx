@@ -1,18 +1,25 @@
 import ProductItem from '../components/products/ProductItem';
-import { placeholderList } from '../api/placeholderList';
+import { placeholderList } from '../data/placeholderList';
+import { setDBProducts } from '../data/crud';
+import { useProductStore } from '../hooks/useProductStore';
 
 
 export default function ProductPage() {
+
+  const { products } = useProductStore()
 
   return (
     <main>
       <h1>find you pick!</h1>
       <input type="search" />
 
+      <button onClick={() => setDBProducts(placeholderList)}> seed products</button>
+
       <div className='product-grid'>
-        {placeholderList.map((item) => (
+        {products.map((item) => (
           <ProductItem
-            key={item.name}
+            key={item.id}
+            id={item.id}
             name={item.name}
             profession={item.profession}
             img={item.img}

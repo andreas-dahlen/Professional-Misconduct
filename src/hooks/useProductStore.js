@@ -5,7 +5,8 @@ export const useProductStore = () => {
 
   return productStore(
     useShallow((s) => ({
-      products: s.products ?? []
+      products: s.products ?? [],
+      setZustandProducts: s.setProducts
     }))
   )
-}
+} 

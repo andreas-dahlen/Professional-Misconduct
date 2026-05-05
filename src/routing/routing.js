@@ -2,8 +2,10 @@ import FrontPage from '../pages/FrontPage.jsx'
 import ProductPage from '../pages/ProductPage.jsx'
 import Root from '../Root.jsx'
 import CartPage from '../pages/CartPage.jsx'
-import LoginPage from '../pages/loginPage.jsx'
+import LoginPage from '../pages/LoginPage.jsx'
 import LoadingPage from '../pages/LoadingPage.jsx'
+import AdminPage from '../pages/AdminPage.jsx'
+import ProductItemPage from '../pages/ProductItemPage.jsx'
 
 export const routing = [
   {
@@ -14,6 +16,11 @@ export const routing = [
       {
         path: '/products',
         Component: ProductPage
+      },
+      {
+        //:name/:id' is called a slug
+        path: '/products/:name/:id',
+        Component: ProductItemPage
       },
       {
         path: '/cart',
@@ -27,7 +34,10 @@ export const routing = [
       {
         path: '/loading',
         Component: LoadingPage
-
+      },
+      {
+        path: '/admin',
+        Component: AdminPage
       }
     ]
   }
