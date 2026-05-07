@@ -2,28 +2,24 @@ import ProductItem from '../components/products/ProductItem';
 import { placeholderList } from '../data/placeholderList';
 import { setDBProducts } from '../data/crud';
 import { useProductStore } from '../hooks/useProductStore';
-import Fuse from 'fuse.js';
-import { useMemo, useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import { useSort } from '../hooks/useSort';
 
 export default function ProductPage() {
 
-  const { products } = useProductStore()
+  const { products, lastVisitedId, setLastVisitedId } = useProductStore()
 
   const [search, setSearch] = useState('')
-  const myFuse = useMemo(() => {
-    return new Fuse(products, {
-      keys: [
-        { name: 'name', weight: 2 },
-        { name: 'profession', weight: 1 }
-      ],
-      includeScore: true,
-      threshold: 0.3,
-    })
-  }, [products])
-  const results = search
-    ? myFuse.search(search).map(r => r.item)
-    : products
+  const results = useSort(products, search)
+
+  useEffect(() => {
+    //if not coming from product-id page... revert
+    if (lastVisitedId) {
+      document.getElementById(`product-${lastVisitedId}`)?.
+        scrollIntoView({ behavior: "instant" })
+      setLastVisitedId('')
+    }
+  }, [])
 
   return (
     <main>

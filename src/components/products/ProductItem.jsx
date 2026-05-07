@@ -1,17 +1,21 @@
 import { useNavigate } from 'react-router'
+import { useProductStore } from '../../hooks/useProductStore'
 
 export default function ProductItem({ id, name, profession, img, description, price }) {
   const src = "/Professional-Misconduct/src/assets/"
+
+  const { setLastVisitedId } = useProductStore()
 
   const goTo = useNavigate()
 
   const handleNavigation = () => {
     const urlName = name.replace(/\s/g, '')
+    setLastVisitedId(id)
     goTo(`${urlName}/${id}`)
   }
 
   return (
-    <div className='product-card' onClick={handleNavigation}>
+    <div id={`product-${id}`} className='product-card' onClick={handleNavigation}>
 
       <h2>{name}</h2>
       <h3>{profession}</h3>

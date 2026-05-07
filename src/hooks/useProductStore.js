@@ -6,9 +6,8 @@ export const useProductStore = () => {
   return productStore(
     useShallow((s) => ({
       products: s.products ?? [],
-      setZustandProducts: s.setProducts,
-      scrollPosition: s.scrollPosition,
-      saveScrollPosition: s.saveScrollPosition
+      lastVisitedId: s.lastVisitedId,
+      setLastVisitedId: s.setLastVisitedId
     }))
   )
 } 

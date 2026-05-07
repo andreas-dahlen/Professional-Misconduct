@@ -10,6 +10,7 @@ export default function ProductItemPage() {
   const prod = products.find(p => p.id === Number(id))
 
   return (
+    //TODO if prod return... else return couldn't find item, navigate to all products button?
     <main>
 
       <div className='product-card'>

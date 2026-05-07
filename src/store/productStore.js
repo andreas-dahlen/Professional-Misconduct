@@ -9,6 +9,8 @@ export const productStore = create(
       products: [],
       // fix an ordering list?
 
+      lastVisitedId: '',
+
       scrollPosition: 0,
 
       setProducts: (list) => {
@@ -16,10 +18,9 @@ export const productStore = create(
           s.products = list
         })
       },
-      saveScrollPosition: (scroll) => {
+      setLastVisitedId: (id) => {
         set(s => {
-          s.scrollPosition = scroll
-          console.log('savedPosition: ', scroll)
+          s.lastVisitedId = id
         })
       }
     })
