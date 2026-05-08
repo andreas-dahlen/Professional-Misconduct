@@ -3,7 +3,6 @@ import ProductPage from '../pages/ProductPage.jsx'
 import Root from '../Root.jsx'
 import CartPage from '../pages/CartPage.jsx'
 import LoginPage from '../pages/LoginPage.jsx'
-import LoadingPage from '../pages/LoadingPage.jsx'
 import AdminPage from '../pages/AdminPage.jsx'
 import ItemPage from '../pages/ItemPage.jsx'
 import CreateUserPage from '../pages/CreateUserPage.jsx'
@@ -31,10 +30,6 @@ export const routing = [
         path: '/login',
         Component: LoginPage
 
-      },
-      {
-        path: '/loading',
-        Component: LoadingPage
       },
       {
         path: '/admin',

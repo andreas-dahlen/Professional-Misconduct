@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import { useProductStore } from '../../hooks/useProductStore'
+import { useProductStore } from '../../hooks/storeHooks/useProductStore'
 
 export default function ProductItem({ id, name, profession, img, description, price }) {
   const src = "/Professional-Misconduct/src/assets/"

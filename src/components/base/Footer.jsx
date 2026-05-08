@@ -1,7 +1,7 @@
 import logo from '../../assets/logo.svg'
 import { NavLink, useLocation } from 'react-router'
-import { useUserStore } from '../../hooks/useUserStore'
-import { useLogoutHandler } from '../../hooks/useLogoutHandler'
+import { useUserStore } from '../../hooks/storeHooks/useUserStore'
+import { useLogoutHandler } from '../../hooks/crudHandlers/useLogoutHandler'
 import { toast } from 'sonner'
 
 export default function Footer() {

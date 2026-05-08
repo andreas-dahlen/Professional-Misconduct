@@ -1,4 +1,4 @@
-import { addDoc, getDocs, collection, getDoc, doc, setDoc } from 'firebase/firestore'
+import { getDocs, collection, getDoc, doc, setDoc } from 'firebase/firestore'
 import { dataBase } from './fireData'
 import { errorHandling } from './errorHandling'
 
@@ -61,8 +61,8 @@ export async function createNewUser(newUserInfo) {
   }
 }
 
-export async function setDBProducts(products) {
-  const col = collection(dataBase, 'products')
-  const promises = products.map(product => addDoc(col, product))
-  await Promise.all(promises)
-}
+// export async function setDBProducts(products) {
+//   const col = collection(dataBase, 'products')
+//   const promises = products.map(product => addDoc(col, product))
+//   await Promise.all(promises)
+// }

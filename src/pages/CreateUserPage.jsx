@@ -42,9 +42,6 @@ export default function CreateUserPage() {
           onKeyDown={handleKeyDown}
         />
 
-        {/* replaced with toast TODO remove? */}
-        {/* {errorMsg && <span className="">{errorMsg}</span>} */}
-
         <button className='def-btn'>submit</button>
 
         <button className='def-btn google-btn'></button>

@@ -1,11 +1,13 @@
 import { NavLink, useParams } from 'react-router';
-import { useProductStore } from '../hooks/useProductStore';
+import { useProductStore } from '../hooks/storeHooks/useProductStore';
+import { useCartStore } from '../hooks/storeHooks/useCartStore';
 
 export default function ProductItemPage() {
   const src = "/Professional-Misconduct/src/assets/"
   const { id } = useParams()
 
   const { products } = useProductStore()
+  const { addToCart } = useCartStore()
 
   const prod = products.find(p => p.id === Number(id))
 
@@ -27,9 +29,10 @@ export default function ProductItemPage() {
         </div>
 
         <h3>{prod.price}</h3>
-
+        <button className='def-btn' onClick={() => addToCart(prod)}>Add to cart</button>
       </div >
-      <NavLink to={-1} className="def-btn"></NavLink>
+
+      <NavLink to={-1} className="def-btn">BACK</NavLink>
     </main>
   )
 }

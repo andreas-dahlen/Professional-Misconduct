@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router'
-import { signUserOut } from '../data/auth'
-import { useUserStore } from './useUserStore'
+import { signUserOut } from '../../data/auth'
+import { useUserStore } from '../storeHooks/useUserStore'
 
 export function useLogoutHandler() {
 

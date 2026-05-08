@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
-import { signInWithGoogle } from '../data/auth'
-import { useUserStore } from './useUserStore'
-import { getUserInfo } from '../data/crud'
+import { signInWithGoogle } from '../../data/auth'
+import { useUserStore } from '../storeHooks/useUserStore'
+import { getUserInfo } from '../../data/crud'
 
 export function useGoogleHandler() {
 

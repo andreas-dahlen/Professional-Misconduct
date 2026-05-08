@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { loginSchema } from '../validation/schemas'
 import { toast } from 'sonner'
-import { useLoginHandler } from '../hooks/useLoginHandler'
+import { useLoginHandler } from '../hooks/crudHandlers/useLoginHandler'
 import { getLoginErrorMessage } from '../validation/schemas'
-import { useUserStore } from '../hooks/useUserStore'
+import { useUserStore } from '../hooks/storeHooks/useUserStore'
 import { NavLink, useNavigate } from 'react-router'
-import { useGoogleHandler } from '../hooks/useGoogleHandler'
+import { useGoogleHandler } from '../hooks/crudHandlers/useGoogleHandler'
 
 export default function LoginPage() {
 
@@ -31,10 +31,14 @@ export default function LoginPage() {
       toast.error(getLoginErrorMessage(email, password), { id: 'login-error' })
       return
     }
+    toast.error('loading...', { id: 'login-error' })
     const result = await loginHandler(email, password)
 
     if (result?.error) {
       toast.error(result.error, { id: 'login-error' })
+      return
+    } else {
+      toast.dismiss('login-error')
     }
   }
 

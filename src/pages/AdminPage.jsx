@@ -1,4 +1,4 @@
-import { useLogoutHandler } from '../hooks/useLogoutHandler'
+import { useLogoutHandler } from '../hooks/crudHandlers/useLogoutHandler'
 import { toast } from 'sonner'
 
 

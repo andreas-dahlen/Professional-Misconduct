@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { productStore } from '../store/productStore';
-import { getDBProducts } from '../data/crud';
+import { productStore } from '../../store/productStore';
+import { getDBProducts } from '../../data/crud';
 
 export function usePopulateStore() {
   useEffect(() => {

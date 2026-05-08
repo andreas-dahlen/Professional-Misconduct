@@ -1,7 +1,5 @@
 import ProductItem from '../components/products/ProductItem';
-import { placeholderList } from '../data/placeholderList';
-import { setDBProducts } from '../data/crud';
-import { useProductStore } from '../hooks/useProductStore';
+import { useProductStore } from '../hooks/storeHooks/useProductStore';
 import { useState, useEffect } from 'react';
 import { useSort } from '../hooks/useSort';
 
@@ -27,8 +25,6 @@ export default function ProductPage() {
         <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} />
         <p>{search}</p>
       </search>
-
-      <button onClick={() => setDBProducts(placeholderList)}> seed products</button>
 
       <div className='product-grid'>
         {results.map((item) => (
