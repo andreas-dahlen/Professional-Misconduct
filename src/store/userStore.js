@@ -6,7 +6,7 @@ export const userStore = create(
   persist(
     immer(set => ({
 
-      user: {},
+      user: null,
       isAdmin: false,
 
       setUser: (user) => {
@@ -16,7 +16,7 @@ export const userStore = create(
       },
       deleteUser: () => {
         set(s => {
-          s.user = {}
+          s.user = null
         })
       },
       setIsAdmin: (boolean) => {

@@ -4,6 +4,8 @@ import LoadingPage from './pages/LoadingPage';
 import Footer from './components/base/Footer';
 import useScrollToTop from './hooks/useScrollToTop';
 import { usePopulateStore } from './hooks/usePopulateStore';
+import { Toaster } from 'sonner';
+import './styles/index.css'
 
 export default function Root() {
   usePopulateStore()
@@ -15,14 +17,32 @@ export default function Root() {
 
 
   return (
-    <div className='app-root'>
+    <>
 
-      <Header />
+      <Toaster
+        toastOptions={{
+          className: 'my-toast'
+        }}
+        position="top-center"        // top-left, top-center, top-right, bottom-left, bottom-center, bottom-right
+        duration={Infinity}             // ms before auto-dismiss
+        richColors                  // makes error red, success green etc
+        closeButton
+        expand
+        // toasts expand by default instead of on hover
+        visibleToasts={1}           // how many stack at once
+        offset={300}                 // distance from edge in px
+      />
 
-      {displayLoading ? <LoadingPage /> : <Outlet />}
+      <div className='app-root'>
 
-      <Footer />
+        <Header />
 
-    </div>
+        {displayLoading ? <LoadingPage /> : <Outlet />}
+
+        <Footer />
+
+      </div>
+
+    </>
   )
 }

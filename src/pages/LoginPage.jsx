@@ -1,65 +1,70 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useEffect, useState } from 'react'
 import { loginSchema } from '../validation/schemas'
-import { signIn } from '../data/auth'
+import { toast } from 'sonner'
+import { useLoginHandler } from '../hooks/useLoginHandler'
 import { getLoginErrorMessage } from '../validation/schemas'
 import { useUserStore } from '../hooks/useUserStore'
+import { NavLink, useNavigate } from 'react-router'
+import { useGoogleHandler } from '../hooks/useGoogleHandler'
 
 export default function LoginPage() {
 
-  const { deleteUser, isAdmin, user, setUser, setIsAdmin } = useUserStore()
+  const { isAdmin, user } = useUserStore()
+  const { loginHandler } = useLoginHandler()
+  const { googleHandler } = useGoogleHandler()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [errorMsg, setErrorMsg] = useState('')
-
-  const handleKeyDown = (e) => e.key === 'Enter' && handleLoggingIn()
 
   const goTo = useNavigate()
+  useEffect(() => {
+    if (user && isAdmin) goTo('/admin')
+  }, [user, isAdmin, goTo])
 
-  const handleLoggingIn = async () => {
+  const handleKeyDown = (e) => e.key === 'Enter' && loginOrchestrator()
+
+  const loginOrchestrator = async (e) => {
+    e?.preventDefault()
     const { error } = loginSchema.validate({ email, password }, { abortEarly: false })
-
     //joi returns truthy if something is wrong
     if (error) {
-      setErrorMsg(getLoginErrorMessage(email, password))
-      setTimeout(() => setErrorMsg(''), 4000)
+      toast.error(getLoginErrorMessage(email, password), { id: 'login-error' })
       return
     }
+    const result = await loginHandler(email, password)
 
-
-    //TODO make into a hook that handles authentication...returns true or false if to goTo admin.
-
-    const info = await signIn(email, password)
-
-    //add a boolean value to info to check if it was successful or not.. and then display more specific error messages!
-
-    if (!info) {
-      setErrorMsg('Wrong ema')
-      setIsAdmin(false)
-      deleteUser() //just for safety
-      setTimeout(() => { //TODO remove error message button? or when a user edits? if (SetErrorMsg) experiment with possible race condition issues? try causing an error msg and then switch page while it is displaying. Also change 4000 to a variable. explore toast liberaries? Test users for it!
-        setErrorMsg('')
-      }, 4000)
-      return
-    }
-    if (info) {
-      setUser(info)
-      setIsAdmin(true)
-      goTo('/admin')
+    if (result?.error) {
+      toast.error(result.error, { id: 'login-error' })
     }
   }
+
+  const loginGoogleOrchestrator = async (e) => {
+    e?.preventDefault()
+    const result = await googleHandler()
+
+    if (result?.error) {
+      toast.error(result.error, { id: 'login-error' })
+    }
+  }
+
+
 
   return (
     <main>
       <form>
-        <h1>{user ? `user: ${user?.displayName} admin: ${isAdmin}` : ''}</h1>
+        {user
+          ? <h1>{`user: ${user?.displayName} 
+          ${isAdmin ? 'admin user' : ''}
+          `}</h1>
+          : <h1> welcome!</h1>
+        }
+
         <label htmlFor='email'>Email</label>
         <input
           id='email'
           type="email"
           value={email}
-          className={`def-input ${errorMsg && 'input-error'}`}
+          className={`def-input`}
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={handleKeyDown}
         />
@@ -69,14 +74,18 @@ export default function LoginPage() {
           id='password'
           type="password"
           value={password}
-          className={`def-input ${errorMsg && 'input-error'}`}
+          className={`def-input`}
           onChange={(e) => setPassword(e.target.value)}
           onKeyDown={handleKeyDown}
         />
 
-        {errorMsg && <span className="error-msg">{errorMsg}</span>}
+        {/* replaced with toast TODO remove? */}
+        {/* {errorMsg && <span className="">{errorMsg}</span>} */}
 
-        <button className='def-btn' onClick={handleLoggingIn}>login</button>
+        <button className='def-btn' onClick={loginOrchestrator}>login</button>
+
+        <NavLink className='def-btn' to={'/create'}> create new user</NavLink>
+        <button className='def-btn google-btn' onClick={loginGoogleOrchestrator}>sign in with google</button>
       </form>
     </main>
   )

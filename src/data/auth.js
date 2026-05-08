@@ -5,6 +5,10 @@ import { errorHandling } from './errorHandling.js';
 
 const googleProvider = new GoogleAuthProvider()
 
+googleProvider.setCustomParameters({
+  prompt: 'select_account'
+})
+
 export async function signInWithGoogle() {
   try {
     const creds = await signInWithPopup(auth, googleProvider)

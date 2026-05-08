@@ -5,7 +5,7 @@ export const useUserStore = () => {
 
   return userStore(
     useShallow((s) => ({
-      user: s.user ?? {},
+      user: s.user ?? null,
       isAdmin: s.isAdmin ?? false,
       setUser: s.setUser,
       deleteUser: s.deleteUser,

@@ -32,6 +32,7 @@ export async function getUserInfo(loginInfo) {
     const userSnapshot = await getDoc(userDocRef)
     const isAdmin = userSnapshot.data()?.admin ?? false
 
+    console.log('userSnapshot:', userSnapshot)
     return {
       email: loginInfo.email,
       uid: loginInfo.uid,
@@ -49,7 +50,7 @@ export async function createNewUser(newUserInfo) {
     const newUserSnap = await setDoc(newUserRef, {
       email: newUserInfo.email,
       uid: newUserInfo.uid,
-      admin: false
+      isAdmin: false
     })
     console.log('new user ', newUserSnap)
     return newUserSnap

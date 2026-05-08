@@ -8,6 +8,7 @@
   --fade: #242424a4;
   --red-fade: #a44b3fc5;
   --green-fade: #7689659f;
+  --text-fade: #f6f4d2b0;
 
   --fade-gradient: #24242496, var(--fade);
 
@@ -16,6 +17,9 @@
 
   --footer-height: 350px;
   --footer-height-mobile: 500px;
+
+  --text-font: 'Lato', sans-serif;
+  --header-font: 'Bebas Neue', cursive;
 }
 
 *,
@@ -35,7 +39,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: 'Lato', sans-serif;
+  font-family: var(--text-font);
   color: var(--text);
   background-color: var(--bkg);
   font-size: 1rem;
@@ -81,7 +85,7 @@ h3,
 nav,
 button,
 a {
-  font-family: 'Bebas Neue', cursive;
+  font-family: var(--header-font);
   letter-spacing: 7%;
   font-size: 1.2rem;
   color: var(--text);

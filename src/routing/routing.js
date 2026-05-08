@@ -6,6 +6,7 @@ import LoginPage from '../pages/LoginPage.jsx'
 import LoadingPage from '../pages/LoadingPage.jsx'
 import AdminPage from '../pages/AdminPage.jsx'
 import ItemPage from '../pages/ItemPage.jsx'
+import CreateUserPage from '../pages/CreateUserPage.jsx'
 
 export const routing = [
   {
@@ -38,6 +39,10 @@ export const routing = [
       {
         path: '/admin',
         Component: AdminPage
+      },
+      {
+        path: '/create',
+        Component: CreateUserPage
       }
     ]
   }

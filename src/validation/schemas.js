@@ -13,7 +13,7 @@ export const loginSchema = Joi.object({
 })
 
 export function getLoginErrorMessage(email, password) {
-  if (email === '' && password === '') return 'Please enter your email and password'
+  if (email === '' && password === '') return 'Please enter email and password'
   if (email === '') return 'Please enter a valid email'
   if (password === '') return 'Please enter a valid password'
   return 'Wrong email or/and password'

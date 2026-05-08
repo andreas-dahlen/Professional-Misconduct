@@ -13,7 +13,6 @@ export default function ProductPage() {
   const results = useSort(products, search)
 
   useEffect(() => {
-    //if not coming from product-id page... revert
     if (lastVisitedId) {
       document.getElementById(`product-${lastVisitedId}`)?.
         scrollIntoView({ behavior: "instant" })
