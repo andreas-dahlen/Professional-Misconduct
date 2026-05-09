@@ -16,7 +16,7 @@ footer {
 
 .navlink-logo-f {
   position: absolute;
-  bottom: 200px;
+  bottom: 160px;
   width: clamp(250px, 25vw, 300px);
   display: flex;
   padding: 10px;
@@ -33,7 +33,7 @@ footer {
   } */
 
   @media (max-width: 650px) {
-    bottom: 340px;
+    bottom: 300px;
   }
 }
 
@@ -59,7 +59,7 @@ footer {
   }
 }
 
-.login-button {
+.login-btn {
   margin-bottom: 1rem;
   background: none;
   font-size: 0.8rem;

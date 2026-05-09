@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.big-button {
+.big-btn {
   padding: 0.7rem 1.2rem 0.5rem 1.7rem;
   font-size: 2rem;
   letter-spacing: 17%;
@@ -19,4 +19,13 @@
   @media (max-width: 340px) {
     padding: 0.7rem 1rem 0.5rem 1.4rem;
   }
+}
+
+.small-btn {
+  border: 2px solid var(--text);
+  border-radius: 8px;
+  padding: 0rem 0.1rem;
+  min-width: 10px;
+  text-align: center;
+  font-size: 0.9rem;
 }

@@ -1,30 +1,12 @@
 import { NavLink, useLocation } from 'react-router'
-import { useUserStore } from '../../hooks/storeHooks/useUserStore'
-import { useLogoutHandler } from '../../hooks/crudHandlers/useLogoutHandler'
-import { toast } from 'sonner'
 import { imgPath } from '../../data/settings'
 
 export default function Footer() {
 
 
   const location = useLocation()
-  const { user, isAdmin } = useUserStore()
 
   const atHome = location.pathname === '/'
-
-  const { logoutHandler } = useLogoutHandler()
-  const logoutOrchestrator = async () => {
-    const result = await logoutHandler()
-    if (result?.error) {
-      toast.error(result.error, { id: 'logout-error' })
-    }
-  }
-
-  const renderLoginOptions = () => {
-    if (isAdmin && user) return <NavLink to='/admin'>admin</NavLink>
-    if (user) return <button onClick={logoutOrchestrator}>logout</button>
-    return <NavLink to='/login'>login</NavLink>
-  }
 
   return (
     <>
@@ -43,13 +25,6 @@ export default function Footer() {
             0123 456 789 <br />
             mischief@gmail.com</p>
         </div>
-
-        <div className='login-options'>
-          {renderLoginOptions()}
-        </div>
-        {/* TODO: remove this stuff */}
-        <p>isAdmin:{isAdmin ? 'yes' : 'no'}</p>
-        <p>email: {user ? user.email : ''}</p>
       </footer>
     </>
   )
