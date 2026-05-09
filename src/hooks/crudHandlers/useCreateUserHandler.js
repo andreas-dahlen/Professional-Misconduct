@@ -4,12 +4,12 @@ import { signUp } from '../../data/auth'
 import { createNewUser } from '../../data/crud'
 
 
-export function useCreateHandler() {
+export function useCreateUserHandler() {
 
   const { setIsAdmin, setUser } = useUserStore()
   const goTo = useNavigate()
 
-  const createHandler = async (email, password) => {
+  const createUserHandler = async (email, password) => {
     const authInfo = await signUp(email, password)
     if (authInfo?.error) return { error: authInfo.error }
 
@@ -18,5 +18,5 @@ export function useCreateHandler() {
     setIsAdmin(false)
     goTo('/')
   }
-  return { createHandler }
+  return { createUserHandler }
 }

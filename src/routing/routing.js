@@ -8,6 +8,7 @@ import CreateUserPage from '../pages/CreateUserPage.jsx'
 import AdminItemPage from '../pages/AdminItemPage.jsx'
 import AdminEditPage from '../pages/AdminEditPage.jsx'
 import { requireAuth } from '../data/requireAuth.js'
+import AdminCreatePage from '../pages/AdminCreatePage.jsx'
 
 export const routing = [
   {
@@ -18,6 +19,11 @@ export const routing = [
       {
         path: '/products',
         Component: ProductPage
+      },
+      {
+        path: '/products/create',
+        loader: requireAuth,
+        Component: AdminCreatePage
       },
       {
         //:name/:id' is called a slug

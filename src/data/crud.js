@@ -1,4 +1,4 @@
-import { getDocs, collection, getDoc, doc, setDoc, addDoc } from 'firebase/firestore'
+import { getDocs, collection, getDoc, doc, setDoc, addDoc, deleteDoc } from 'firebase/firestore'
 import { dataBase } from './fireData'
 import { errorHandling } from './errorHandling'
 
@@ -32,8 +32,6 @@ export async function getUserInfo(loginInfo) {
     const userSnapshot = await getDoc(userDocRef)
     if (!userSnapshot.exists()) return null
     const isAdmin = userSnapshot.data()?.admin ?? false
-
-    console.log('userSnapshot:', userSnapshot)
     return {
       email: loginInfo.email,
       uid: loginInfo.uid,
@@ -48,13 +46,12 @@ export async function getUserInfo(loginInfo) {
 export async function createNewUser(newUserInfo) {
   const newUserRef = doc(dataBase, 'users', newUserInfo.uid)
   try {
-    const newUserSnap = await setDoc(newUserRef, {
+    await setDoc(newUserRef, {
       email: newUserInfo.email,
       uid: newUserInfo.uid,
       isAdmin: false
     })
-    console.log('new user ', newUserSnap)
-    return newUserSnap
+    return true
 
   } catch (error) {
     console.error("something went wrong creating a user", error)
@@ -65,9 +62,8 @@ export async function createNewUser(newUserInfo) {
 export async function editProduct(change) {
   const prodRef = doc(dataBase, 'products', change.uid)
   try {
-    const editedProductSnap = await setDoc(prodRef, change)
-    console.log('edited product ', editedProductSnap)
-    return editedProductSnap
+    await setDoc(prodRef, change)
+    return true
 
   } catch (error) {
     console.error("something went wrong creating a user", error)
@@ -80,12 +76,23 @@ export async function addProduct(prod) {
   try {
     const newProdSnap = await addDoc(docCollection, {
       ...prod,
-      img: 'placeHolder.png',
+      img: 'placeholder.png',
     })
-    return { ...prod, img: 'placeHolder.png', uid: newProdSnap.id }
+    return { ...prod, img: 'placeholder.png', uid: newProdSnap.id }
 
   } catch (error) {
     console.error("something went wrong creating a product", error)
+    return { error: errorHandling(error) }
+  }
+}
+
+export async function deleteProduct(uid) {
+  const prodRef = doc(dataBase, 'products', uid)
+  try {
+    await deleteDoc(prodRef)
+    return true
+  } catch (error) {
+    console.error('something went wrong deleting product', error)
     return { error: errorHandling(error) }
   }
 }

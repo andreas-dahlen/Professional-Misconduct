@@ -30,7 +30,7 @@ export const editSchema = Joi.object({
   description:
     Joi.string()
       .min(10)
-      .max(40)
+      .max(100)
       .required()
       .trim()
       .messages(descriptionErrorMessage),

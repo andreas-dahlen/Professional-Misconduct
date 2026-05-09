@@ -7,7 +7,10 @@ export const useProductStore = () => {
     useShallow((s) => ({
       products: s.products ?? [],
       lastVisitedId: s.lastVisitedId,
-      setLastVisitedId: s.setLastVisitedId
+      setLastVisitedId: s.setLastVisitedId,
+      updateProduct: s.updateProduct,
+      addProduct: s.addProduct,
+      deleteProduct: s.deleteProduct
     }))
   )
 } 

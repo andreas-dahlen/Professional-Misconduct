@@ -20,7 +20,6 @@ export default function ProductCard({ prod, children }) {
         <div className='product-card-children'>
           {children}
         </div>
-
       </div >
 
       <NavLink to={-1} className="def-btn">BACK</NavLink>

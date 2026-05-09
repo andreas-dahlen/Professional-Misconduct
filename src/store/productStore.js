@@ -7,7 +7,6 @@ export const productStore = create(
     immer(set => ({
 
       products: [],
-      // fix an ordering list?
 
       lastVisitedId: '',
 
@@ -21,6 +20,24 @@ export const productStore = create(
       setLastVisitedId: (id) => {
         set(s => {
           s.lastVisitedId = id
+        })
+      },
+      updateProduct: (changedProd) => {
+        set(s => {
+          const index = s.products.findIndex(p => p.id === changedProd.id)
+          if (index !== -1) s.products[index] = changedProd
+        })
+      },
+
+      addProduct: (item) => {
+        set(s => {
+          s.products.push(item)
+        })
+      },
+
+      deleteProduct: (id) => {
+        set(s => {
+          s.products = s.products.filter(p => p.id !== id)
         })
       }
     })
