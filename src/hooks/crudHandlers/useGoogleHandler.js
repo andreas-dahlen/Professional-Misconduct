@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
 import { signInWithGoogle } from '../../data/auth'
 import { useUserStore } from '../storeHooks/useUserStore'
-import { getUserInfo } from '../../data/crud'
+import { createNewUser, getUserInfo } from '../../data/crud'
 
 export function useGoogleHandler() {
 
@@ -17,10 +17,12 @@ export function useGoogleHandler() {
     }
 
     const userInfo = await getUserInfo(authInfo)
-    if (userInfo?.error) {
-      deleteUser()
+    if (!userInfo || userInfo.error) {
+      await createNewUser({ uid: authInfo.uid, email: authInfo.email, isAdmin: false })
+      setUser({ uid: authInfo.uid, email: authInfo.email, isAdmin: false })
       setIsAdmin(false)
-      return { error: authInfo.error }
+      goTo('/')
+      return
     }
 
     setUser(userInfo)

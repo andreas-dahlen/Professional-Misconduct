@@ -1,4 +1,4 @@
-import { getDocs, collection, getDoc, doc, setDoc } from 'firebase/firestore'
+import { getDocs, collection, getDoc, doc, setDoc, addDoc } from 'firebase/firestore'
 import { dataBase } from './fireData'
 import { errorHandling } from './errorHandling'
 
@@ -7,8 +7,8 @@ export async function getDBProducts() {
   try {
     const productSnapshot = await getDocs(productCollectionRef)
     const productList = productSnapshot.docs.map(snap => ({
-      id: snap.id,
-      ...snap.data()
+      ...snap.data(),
+      uid: snap.id
     }))
 
     const sortedList = productList.sort((one, two) => {
@@ -30,6 +30,7 @@ export async function getUserInfo(loginInfo) {
 
   try {
     const userSnapshot = await getDoc(userDocRef)
+    if (!userSnapshot.exists()) return null
     const isAdmin = userSnapshot.data()?.admin ?? false
 
     console.log('userSnapshot:', userSnapshot)
@@ -61,8 +62,30 @@ export async function createNewUser(newUserInfo) {
   }
 }
 
-// export async function setDBProducts(products) {
-//   const col = collection(dataBase, 'products')
-//   const promises = products.map(product => addDoc(col, product))
-//   await Promise.all(promises)
-// }
+export async function editProduct(change) {
+  const prodRef = doc(dataBase, 'products', change.uid)
+  try {
+    const editedProductSnap = await setDoc(prodRef, change)
+    console.log('edited product ', editedProductSnap)
+    return editedProductSnap
+
+  } catch (error) {
+    console.error("something went wrong creating a user", error)
+    return { error: errorHandling(error) }
+  }
+}
+
+export async function addProduct(prod) {
+  const docCollection = collection(dataBase, 'products')
+  try {
+    const newProdSnap = await addDoc(docCollection, {
+      ...prod,
+      img: 'placeHolder.png',
+    })
+    return { ...prod, img: 'placeHolder.png', uid: newProdSnap.id }
+
+  } catch (error) {
+    console.error("something went wrong creating a product", error)
+    return { error: errorHandling(error) }
+  }
+}

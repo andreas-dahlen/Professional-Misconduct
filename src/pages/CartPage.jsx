@@ -2,7 +2,6 @@ import { useCartStore } from '../hooks/storeHooks/useCartStore'
 import CartItem from '../components/cart/CartItem'
 
 export default function CartPage() {
-
   const { cartItems, clearCart, totalPrice } = useCartStore()
 
   return (

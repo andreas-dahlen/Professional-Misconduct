@@ -1,5 +1,5 @@
 import Joi from 'joi'
-
+import { nameErrorMessage, professionErrorMessage, descriptionErrorMessage, priceErrorMessage } from './messages'
 
 export const loginSchema = Joi.object({
   email:
@@ -12,9 +12,31 @@ export const loginSchema = Joi.object({
       .required()
 })
 
-export function getLoginErrorMessage(email, password) {
-  if (email === '' && password === '') return 'Please enter email and password'
-  if (email === '') return 'Please enter a valid email'
-  if (password === '') return 'Please enter a valid password'
-  return 'Wrong email or/and password'
-}
+export const editSchema = Joi.object({
+  name:
+    Joi.string()
+      .min(3)
+      .max(15)
+      .required()
+      .trim()
+      .messages(nameErrorMessage),
+  profession:
+    Joi.string()
+      .min(3)
+      .max(15)
+      .required()
+      .trim()
+      .messages(professionErrorMessage),
+  description:
+    Joi.string()
+      .min(10)
+      .max(40)
+      .required()
+      .trim()
+      .messages(descriptionErrorMessage),
+  price: Joi.number()
+    .positive()
+    .integer()
+    .required()
+    .messages(priceErrorMessage)
+})

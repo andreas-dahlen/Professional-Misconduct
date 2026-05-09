@@ -1,8 +1,8 @@
-import logo from '../../assets/logo.svg'
 import { NavLink, useLocation } from 'react-router'
 import { useUserStore } from '../../hooks/storeHooks/useUserStore'
 import { useLogoutHandler } from '../../hooks/crudHandlers/useLogoutHandler'
 import { toast } from 'sonner'
+import { imgPath } from '../../data/settings'
 
 export default function Footer() {
 
@@ -30,7 +30,7 @@ export default function Footer() {
     <>
       <footer>
         <NavLink to='/' className="navlink-logo-f">
-          <img src={logo} className="logo" style={atHome ? { cursor: 'default' } : null} alt="logo of Professional Misconduct"></img>
+          <img src={`${imgPath}logo.svg`} className="logo" style={atHome ? { cursor: 'default' } : null} alt="logo of Professional Misconduct"></img>
         </NavLink>
 
         <div className='footer-flexbox'>
@@ -47,7 +47,7 @@ export default function Footer() {
         <div className='login-options'>
           {renderLoginOptions()}
         </div>
-
+        {/* TODO: remove this stuff */}
         <p>isAdmin:{isAdmin ? 'yes' : 'no'}</p>
         <p>email: {user ? user.email : ''}</p>
       </footer>

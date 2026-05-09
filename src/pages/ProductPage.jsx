@@ -1,4 +1,4 @@
-import ProductItem from '../components/products/ProductItem';
+import ProductListItem from '../components/products/ProductListItem';
 import { useProductStore } from '../hooks/storeHooks/useProductStore';
 import { useState, useEffect } from 'react';
 import { useSort } from '../hooks/useSort';
@@ -28,7 +28,7 @@ export default function ProductPage() {
 
       <div className='product-grid'>
         {results.map((item) => (
-          <ProductItem
+          < ProductListItem
             key={item.id}
             id={item.id}
             name={item.name}

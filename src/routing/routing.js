@@ -3,9 +3,11 @@ import ProductPage from '../pages/ProductPage.jsx'
 import Root from '../Root.jsx'
 import CartPage from '../pages/CartPage.jsx'
 import LoginPage from '../pages/LoginPage.jsx'
-import AdminPage from '../pages/AdminPage.jsx'
-import ItemPage from '../pages/ItemPage.jsx'
+import ProductItemPage from '../pages/ProductItemPage.jsx'
 import CreateUserPage from '../pages/CreateUserPage.jsx'
+import AdminItemPage from '../pages/AdminItemPage.jsx'
+import AdminEditPage from '../pages/AdminEditPage.jsx'
+import { requireAuth } from '../data/requireAuth.js'
 
 export const routing = [
   {
@@ -20,7 +22,17 @@ export const routing = [
       {
         //:name/:id' is called a slug
         path: '/products/:name/:id',
-        Component: ItemPage
+        Component: ProductItemPage
+      },
+      {
+        path: '/products/:name/:id/admin',
+        loader: requireAuth,
+        Component: AdminItemPage
+      },
+      {
+        path: '/products/:name/:id/admin/edit',
+        loader: requireAuth,
+        Component: AdminEditPage
       },
       {
         path: '/cart',
@@ -29,11 +41,6 @@ export const routing = [
       {
         path: '/login',
         Component: LoginPage
-
-      },
-      {
-        path: '/admin',
-        Component: AdminPage
       },
       {
         path: '/create',

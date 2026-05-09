@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { loginSchema } from '../validation/schemas'
 import { toast } from 'sonner'
 import { useLoginHandler } from '../hooks/crudHandlers/useLoginHandler'
-import { getLoginErrorMessage } from '../validation/schemas'
+import { getLoginErrorMessage } from '../validation/messages'
 import { useUserStore } from '../hooks/storeHooks/useUserStore'
-import { NavLink, useNavigate } from 'react-router'
+import { NavLink } from 'react-router'
 import { useGoogleHandler } from '../hooks/crudHandlers/useGoogleHandler'
 
 export default function LoginPage() {
@@ -15,11 +15,6 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const goTo = useNavigate()
-  useEffect(() => {
-    if (user && isAdmin) goTo('/admin')
-  }, [user, isAdmin, goTo])
 
   const handleKeyDown = (e) => e.key === 'Enter' && loginOrchestrator()
 
@@ -51,8 +46,6 @@ export default function LoginPage() {
     }
   }
 
-
-
   return (
     <main>
       <form>
@@ -82,9 +75,6 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-
-        {/* replaced with toast TODO remove? */}
-        {/* {errorMsg && <span className="">{errorMsg}</span>} */}
 
         <button className='def-btn' onClick={loginOrchestrator}>login</button>
 

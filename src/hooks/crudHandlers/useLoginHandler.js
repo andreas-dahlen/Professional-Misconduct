@@ -20,12 +20,12 @@ export function useLoginHandler() {
     if (userInfo?.error) {
       deleteUser()
       setIsAdmin(false)
-      return { error: authInfo.error }
+      return { error: userInfo.error }
     }
 
     setUser(userInfo)
     setIsAdmin(userInfo.isAdmin)
-    if (userInfo.isAdmin) goTo('/admin')
+    if (userInfo.isAdmin) goTo('/')
   }
   return { loginHandler }
 }
