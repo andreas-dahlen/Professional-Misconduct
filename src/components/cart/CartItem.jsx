@@ -2,7 +2,8 @@ import { imgPath } from '../../data/settings'
 
 export default function CartItem({ id, name, img, price }) {
   return (
-    <div id={`product-${id}`} className='product-card'>
+
+    <article id={`product-${id}`} className='product-card'>
       <h2>{name}</h2>
       <div className='img-and-text'>
         <div className='product-img'>
@@ -10,6 +11,6 @@ export default function CartItem({ id, name, img, price }) {
         </div>
       </div>
       <h3>{price}</h3>
-    </div >
+    </article >
   )
 }

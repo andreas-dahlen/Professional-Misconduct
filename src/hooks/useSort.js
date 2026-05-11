@@ -17,3 +17,13 @@ export function useSort(products, search) {
     ? myFuse.search(search).map(r => r.item)
     : products
 }
+
+export function defaultIdSort(productList) {
+  return productList.sort((one, two) => {
+    if (one.id < two.id) {
+      return -1
+    } else if (one.id > two.id) {
+      return 1
+    } else return 0
+  })
+}

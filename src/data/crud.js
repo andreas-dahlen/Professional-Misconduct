@@ -1,6 +1,7 @@
 import { getDocs, collection, getDoc, doc, setDoc, addDoc, deleteDoc } from 'firebase/firestore'
 import { dataBase } from './fireData'
 import { errorHandling } from './errorHandling'
+import { defaultIdSort } from '../hooks/useSort'
 
 export async function getDBProducts() {
   const productCollectionRef = collection(dataBase, 'products')
@@ -11,19 +12,34 @@ export async function getDBProducts() {
       uid: snap.id
     }))
 
-    const sortedList = productList.sort((one, two) => {
-      if (one.id < two.id) {
-        return -1
-      } else if (one.id > two.id) {
-        return 1
-      } else return 0
-    })
-    return sortedList
+    return defaultIdSort(productList)
   } catch (error) {
     console.error('something went wrong', error)
     return { error: errorHandling(error) }
   }
 }
+
+/**
+ In case of product misshandling. Used to reset the products.
+ */
+export async function resetDBProducts(products) {
+  const col = collection(dataBase, 'products')
+  try {
+    const snapshot = await getDocs(col)
+    const deletePromises = snapshot.docs.map(doc => deleteDoc(doc.ref))
+    await Promise.all(deletePromises)
+
+    const addPromises = products.map(product => addDoc(col, product))
+    await Promise.all(addPromises)
+
+    return getDBProducts()
+  } catch (error) {
+    console.error('something went wrong resetting products', error)
+    return { error: errorHandling(error) }
+  }
+}
+
+
 
 export async function getUserInfo(loginInfo) {
   const userDocRef = doc(dataBase, 'users', loginInfo.uid)
@@ -96,3 +112,4 @@ export async function deleteProduct(uid) {
     return { error: errorHandling(error) }
   }
 }
+

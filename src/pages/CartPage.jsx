@@ -28,13 +28,8 @@ export default function CartPage() {
       {cartItems.map((item) => (
         <CartItem
           key={item.id}
-          id={item.id}
-          name={item.name}
-          profession={item.profession}
-          img={item.img}
-          description={item.description}
-          price={item.price}
-        ></CartItem>
+          {...item}
+        />
       ))}
 
       {cartItems.length !== 0 && <h1>totalPrice: {totalPrice}</h1>}

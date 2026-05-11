@@ -2,14 +2,14 @@ import ProductListItem from '../components/products/ProductListItem';
 import { useProductStore } from '../hooks/storeHooks/useProductStore';
 import { useState, useEffect } from 'react';
 import { useSort } from '../hooks/useSort';
-import { useUserStore } from '../hooks/storeHooks/useUserStore';
-import { NavLink } from 'react-router';
+import AdminProductControls from '../components/products/AdminProductControls';
+import SingleListItem from '../components/products/SingleListItem';
 
 export default function ProductPage() {
 
   const { products, lastVisitedId, setLastVisitedId } = useProductStore()
+
   const [search, setSearch] = useState('')
-  const { user, isAdmin } = useUserStore()
 
   const results = useSort(products, search)
 
@@ -21,31 +21,35 @@ export default function ProductPage() {
     }
   }, [])
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') e.target.blur()
+  }
+
+
   return (
     <main>
       <h1>find you pick!</h1>
       <search>
-        <input type="search" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <input type="search" name='search' value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown} />
       </search>
-      {user && isAdmin
-        ? <NavLink to='/products/create'>Create New Product</NavLink>
-        : ''
-      }
 
-      <div className='product-grid'>
-        {results.map((item) => (
-          < ProductListItem
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            profession={item.profession}
-            img={item.img}
-            description={item.description}
-            price={item.price}
-          />
-        ))
-        }
-      </div>
+      <AdminProductControls />
+
+      {results.length === 1
+        ? < SingleListItem
+          key={results[0].id}
+          {...results[0]}
+        />
+        : <div className='product-grid'>
+          {results.map((item) => (
+            < ProductListItem
+              key={item.id}
+              {...item}
+            />
+          ))
+          }
+        </div>
+      }
     </main>
   )
 }

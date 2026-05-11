@@ -1,7 +1,7 @@
 import { imgPath } from '../../data/settings'
 import { useProductNavigation } from '../../hooks/useProductNavigation'
 
-export default function ProductListItem({ id, name, profession, img, description, price }) {
+export default function SingleListItem({ id, name, profession, img, description, price }) {
 
   const { productNavigation } = useProductNavigation()
 
@@ -9,7 +9,9 @@ export default function ProductListItem({ id, name, profession, img, description
 
   return (
     <article tabIndex={0}
-      id={`product-${id}`} className='product-card-bg' onClick={() => productNavigation(name, id)} onKeyDown={handleKeyDown}>
+      id={`product-${id}`} className='product-card-bg'
+      onClick={() => productNavigation(name, id)} onKeyDown={handleKeyDown}
+    >
       <div className='product-card'>
 
         <h2>{name}</h2>

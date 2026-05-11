@@ -3,10 +3,9 @@ import { imgPath } from '../../data/settings'
 
 export default function ProductCard({ prod, children }) {
 
-
   return (
     <>
-      <div className='product-card'>
+      <article className='product-card'>
         <h2>{prod.name}</h2>
         <h3>{prod.profession}</h3>
         <div className='img-and-text'>
@@ -20,7 +19,7 @@ export default function ProductCard({ prod, children }) {
         <div className='product-card-children'>
           {children}
         </div>
-      </div >
+      </article >
 
       <NavLink to={-1} className="def-btn">BACK</NavLink>
     </>

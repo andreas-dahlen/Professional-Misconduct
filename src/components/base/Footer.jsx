@@ -11,8 +11,8 @@ export default function Footer() {
   return (
     <>
       <footer>
-        <NavLink to='/' className="navlink-logo-f">
-          <img src={`${imgPath}logo.svg`} className="logo" style={atHome ? { cursor: 'default' } : null} alt="logo of Professional Misconduct"></img>
+        <NavLink to='/' className="navlink-logo-f" style={atHome ? { cursor: 'default' } : null}>
+          <img src={`${imgPath}logo.svg`} className="logo" alt="logo of Professional Misconduct"></img>
         </NavLink>
 
         <div className='footer-flexbox'>

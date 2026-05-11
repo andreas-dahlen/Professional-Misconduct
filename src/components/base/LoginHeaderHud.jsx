@@ -22,6 +22,7 @@ export default function LoginHeaderHud() {
   return (
     <div className='auth-hud'>
       <p>{user ? user.email : ''}</p>
+      <span>★</span>
       {renderLoginOptions()}
     </div>
   )

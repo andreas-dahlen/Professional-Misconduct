@@ -26,7 +26,7 @@ export default function ProductForm({ changes, setChanges, onSave }) {
   return (
     <main>
 
-      <div className='product-card product-card-edit'>
+      <form className='product-card product-card-edit'>
         <label htmlFor='name'>Product Name</label>
         <input
           id='name'
@@ -83,7 +83,7 @@ export default function ProductForm({ changes, setChanges, onSave }) {
         <div className='product-card-children'>
           <button onClick={saveOrchestrator}>Save</button>
         </div>
-      </div >
+      </form >
 
       <NavLink to={-1} className="def-btn">CANCEL</NavLink>
     </main>

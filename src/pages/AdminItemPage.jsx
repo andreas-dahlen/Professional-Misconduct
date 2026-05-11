@@ -3,7 +3,6 @@ import ProductCard from '../components/products/ProductCard'
 import { NavLink } from 'react-router'
 import { useDeleteProductHandler } from '../hooks/crudHandlers/useDeleteProductHandler'
 
-
 export default function AdminItemPage() {
 
   const prod = useFindProduct()

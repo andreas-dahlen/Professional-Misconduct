@@ -36,16 +36,6 @@ export default function CreateUserPage() {
       <form>
         : <h1> welcome!</h1>
 
-        {/* <label htmlFor='name'>Name</label>
-        <input
-          id='name'
-          type="text"
-          value={name}
-          className={`def-input`}
-          onChange={(e) => setName(e.target.value)}
-          onKeyDown={handleKeyDown}
-        /> */}
-
         <label htmlFor='email'>Email</label>
         <input
           id='email'

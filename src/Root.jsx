@@ -26,7 +26,7 @@ export default function Root() {
         offset={300}
       />
 
-      <div className='app-root'>
+      <div style={{ minHeight: '100svh' }}>
 
         <Header />
 

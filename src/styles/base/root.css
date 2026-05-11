@@ -3,6 +3,7 @@
   --text: #F6F4D2;
   --green: #768965;
   --red: #A44A3F;
+  --green-gray: #434a3c;
 
 
   --fade: #242424a4;
@@ -12,7 +13,7 @@
 
   --fade-gradient: #24242496, var(--fade);
 
-  --header-height: 190px;
+  --header-height: 230px;
   --header-height-mobile: 272px;
 
   --footer-height: 350px;
@@ -31,7 +32,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 160%;
+  font-size: 140%;
 }
 
 body {
@@ -53,10 +54,6 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-}
-
-.app-root {
-  min-height: 100svh;
 }
 
 main {

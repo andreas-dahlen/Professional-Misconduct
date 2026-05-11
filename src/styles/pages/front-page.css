@@ -36,17 +36,21 @@
   align-items: center;
 
   .big-btn {
-    margin: 2.5rem 0 4rem;
+    margin: 2.5rem 0 7rem;
   }
 }
 
 .slogan {
   position: relative;
   background-color: var(--fade);
-  padding: 0.3em 1rem 0.6rem 1rem;
+  padding: 0.3rem 1rem 0.6rem 1rem;
   border-radius: 14px;
   font-size: 1.2rem;
   margin-top: 10.8rem;
+
+  @media (max-width: 351px) {
+    padding: 0.3rem 0 0.6rem 0;
+  }
 
   &::before {
     position: absolute;
@@ -59,5 +63,5 @@
 }
 
 .quote {
-  margin-bottom: 10em;
+  margin-bottom: 7rem;
 }
