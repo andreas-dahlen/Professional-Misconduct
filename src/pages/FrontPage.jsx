@@ -6,7 +6,7 @@ export default function FrontPage() {
   return (
     <>
       <div className='hero-box'>
-        <img src={`${imgPath}hero.png`} className="hero" alt="hero img"></img>
+        <img src={`${imgPath}hero.png`} className="hero" alt="hero img" />
       </div>
       <main className='main-front-page'>
 

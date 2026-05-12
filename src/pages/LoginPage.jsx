@@ -6,6 +6,8 @@ import { getLoginErrorMessage } from '../validation/messages'
 import { useUserStore } from '../hooks/storeHooks/useUserStore'
 import { NavLink } from 'react-router'
 import { useGoogleHandler } from '../hooks/crudHandlers/useGoogleHandler'
+import SonnerTesting from '../DELETE/SonnerTesting'
+import InputElement from '../components/products/InputElement'
 
 export default function LoginPage() {
 
@@ -23,63 +25,60 @@ export default function LoginPage() {
     const { error } = loginSchema.validate({ email, password }, { abortEarly: false })
     //joi returns truthy if something is wrong
     if (error) {
-      toast.error(getLoginErrorMessage(email, password), { id: 'login-error' })
+      toast.warning(getLoginErrorMessage(email, password), { id: 'sonner', duration: Infinity })
       return
     }
-    toast.error('loading...', { id: 'login-error' })
+    toast.loading('loading...', { id: 'sonner' })
     const result = await loginHandler(email, password)
 
     if (result?.error) {
-      toast.error(result.error, { id: 'login-error' })
+      toast.error(result.error, { id: 'sonner', duration: Infinity })
       return
     } else {
-      toast.dismiss('login-error')
+      toast.success('success!', { id: 'sonner', duration: 3000 })
     }
   }
 
   const loginGoogleOrchestrator = async (e) => {
     e?.preventDefault()
+    toast.loading('loading...', { id: 'sonner' })
     const result = await googleHandler()
 
     if (result?.error) {
-      toast.error(result.error, { id: 'login-error' })
+      toast.error(result.error, { id: 'sonner', duration: Infinity })
+    } else {
+      toast.success('success!', { id: 'sonner', duration: 3000 })
     }
   }
 
   return (
     <main>
+
+      {isAdmin && user && <SonnerTesting />}
       <form>
         {user
-          ? <h1>{`user: ${user?.displayName} 
+          ? <h1>{`user: ${user?.email} 
           ${isAdmin ? 'admin user' : ''}
           `}</h1>
-          : <h1> welcome!</h1>
+          : <h1> Login</h1>
         }
-
-        <label htmlFor='email'>Email</label>
-        <input
-          id='email'
+        <InputElement
           type="email"
           value={email}
-          className={`def-input`}
-          onChange={(e) => setEmail(e.target.value)}
-          onKeyDown={handleKeyDown}
+          changeFn={setEmail}
+          keyDownFn={handleKeyDown}
         />
-
-        <label htmlFor='password'> Password</label>
-        <input
-          id='password'
+        <InputElement
           type="password"
           value={password}
-          className={`def-input`}
-          onChange={(e) => setPassword(e.target.value)}
-          onKeyDown={handleKeyDown}
+          changeFn={setPassword}
+          keyDownFn={handleKeyDown}
         />
+        <button className='big-btn' onClick={loginOrchestrator}>login</button>
 
-        <button className='def-btn' onClick={loginOrchestrator}>login</button>
-
-        <NavLink className='def-btn' to={'/create'}> create new user</NavLink>
         <button className='def-btn google-btn' onClick={loginGoogleOrchestrator}>sign in with google</button>
+
+        <NavLink className='text-link' to={'/create'}> Don't have an account? create one!</NavLink>
       </form>
     </main>
   )

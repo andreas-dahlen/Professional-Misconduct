@@ -14,14 +14,10 @@ export default function Root() {
     <>
 
       <Toaster
-        // toastOptions={{
-        //   className: 'my-toast'
-        // }}
         position="top-center"
         duration={Infinity}
         richColors
         closeButton
-        expand
         visibleToasts={1}
         offset={300}
       />
@@ -30,8 +26,8 @@ export default function Root() {
 
         <Header />
 
-        {/* {state === 'loading' ? <LoadingPage /> : <Outlet />} */}
         <Outlet />
+
         <Footer />
 
       </div>

@@ -1,31 +1,30 @@
 import { useFindProduct } from '../hooks/useFindProduct'
-import ProductCard from '../components/products/ProductCard'
+import ProductItem from '../components/products/ProductItem'
 import { NavLink } from 'react-router'
 import { useDeleteProductHandler } from '../hooks/crudHandlers/useDeleteProductHandler'
+import ProductMissing from '../components/products/ProductMissing'
 
 export default function AdminItemPage() {
 
-  const prod = useFindProduct()
+  const { prod, path } = useFindProduct()
   const { deleteProductHandler } = useDeleteProductHandler()
 
   const handleDeletion = () => {
     deleteProductHandler(prod)
   }
 
-  if (!prod) return (
-    <main>
-      <p className='slogan'> product not found </p>
-      <NavLink to={-1} className="def-btn">BACK</NavLink>
-    </main>
+  if (!prod) return (<ProductMissing
+    path={path}
+  />
   )
 
   return (
     <main>
 
-      <ProductCard prod={prod}>
+      <ProductItem prod={prod}>
         <NavLink to={`/products/${prod.name}/${prod.id}/admin/edit`}>edit</NavLink>
         <button to={-1} onClick={handleDeletion}>delete</button>
-      </ProductCard>
+      </ProductItem>
 
     </main>
   )

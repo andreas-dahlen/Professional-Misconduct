@@ -3,13 +3,12 @@ import { loginSchema } from '../validation/schemas'
 import { toast } from 'sonner'
 import { getLoginErrorMessage } from '../validation/messages'
 import { useCreateUserHandler } from '../hooks/crudHandlers/useCreateUserHandler'
+import InputElement from '../components/products/InputElement'
 
 export default function CreateUserPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const [name, setName] = useState('')
   const { createUserHandler } = useCreateUserHandler()
-
 
   const handleKeyDown = (e) => e.key === 'Enter' && ''
 
@@ -18,45 +17,43 @@ export default function CreateUserPage() {
     const { error } = loginSchema.validate({ email, password }, { abortEarly: false })
 
     if (error) {
-      toast.error(getLoginErrorMessage(email, password), { id: 'login-error' })
+      toast.warning(getLoginErrorMessage(email, password), { id: 'sonner', duration: Infinity })
       return
     }
-    toast.error('loading...', { id: 'login-error' })
+    toast.loading('loading...', { id: 'sonner' })
     const result = await createUserHandler(email, password)
 
     if (result?.error) {
-      toast.error(result.error, { id: 'login-error' })
+      toast.error(result.error, { id: 'sonner', duration: Infinity })
       return
     } else {
-      toast.dismiss('login-error')
+      toast.success('done!', { id: 'sonner', duration: 3000 })
     }
   }
+
   return (
     <main>
       <form>
-        : <h1> welcome!</h1>
+        <h1> welcome!</h1>
 
-        <label htmlFor='email'>Email</label>
-        <input
-          id='email'
+        <InputElement
           type="email"
           value={email}
-          className={`def-input`}
-          onChange={(e) => setEmail(e.target.value)}
+          changeFn={setEmail}
           onKeyDown={handleKeyDown}
         />
 
-        <label htmlFor='password'> Password</label>
-        <input
-          id='password'
+        <InputElement
           type="password"
           value={password}
-          className={`def-input`}
-          onChange={(e) => setPassword(e.target.value)}
-          onKeyDown={handleKeyDown}
+          changeFn={setPassword}
+          keyDownFn={handleKeyDown}
         />
 
         <button className='def-btn' onClick={createOrchestrator}>create</button>
+
+
+        {/* TODO back button? */}
       </form>
     </main>
   )

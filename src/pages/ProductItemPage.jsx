@@ -1,25 +1,23 @@
 import { useFindProduct } from '../hooks/useFindProduct'
-import ProductCard from '../components/products/ProductCard'
+import ProductItem from '../components/products/ProductItem'
 import { useCartStore } from '../hooks/storeHooks/useCartStore'
-import { NavLink } from 'react-router'
+import ProductMissing from '../components/products/ProductMissing'
 
 export default function ProductItemPage() {
 
-  const prod = useFindProduct()
+  const { prod, path } = useFindProduct()
   const { addToCart } = useCartStore()
 
-  if (!prod) return (
-    <main>
-      <p className='slogan'> product not found </p>
-      <NavLink to={-1} className="def-btn">BACK</NavLink>
-    </main>
+  if (!prod) return (<ProductMissing
+    path={path}
+  />
   )
 
   return (
     <main>
-      <ProductCard prod={prod}>
-        <button className='def-btn' onClick={() => addToCart(prod)}>Add to cart</button>
-      </ProductCard>
+      <ProductItem prod={prod}>
+        <button className='semi-big-btn' onClick={() => addToCart(prod)}>Add to cart</button>
+      </ProductItem>
     </main>
   )
 }

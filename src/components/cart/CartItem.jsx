@@ -7,7 +7,7 @@ export default function CartItem({ id, name, img, price }) {
       <h2>{name}</h2>
       <div className='img-and-text'>
         <div className='product-img'>
-          <img src={imgPath + img}></img>
+          <img src={imgPath + img} />
         </div>
       </div>
       <h3>{price}</h3>

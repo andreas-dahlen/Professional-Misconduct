@@ -5,6 +5,8 @@
   --red: #A44A3F;
   --green-gray: #434a3c;
 
+  --red-bright: #c5827a;
+  --green-bright: #c4dead;
 
   --fade: #242424a4;
   --red-fade: #a44b3fc5;
@@ -58,7 +60,7 @@ body {
 
 main {
   flex: 1;
-  min-height: 75svh;
+  min-height: 93svh;
   max-width: 1100px;
   margin: 0 auto;
 
@@ -73,6 +75,7 @@ a {
   /* font: inherit; */
   /* color: inherit; */
   /* border: none; */
+  background-color: var(--fade);
   text-decoration: none;
 }
 
@@ -84,10 +87,7 @@ button,
 a {
   font-family: var(--header-font);
   letter-spacing: 7%;
-  font-size: 1.2rem;
   color: var(--text);
-  background-color: var(--fade);
-
 }
 
 .active {
@@ -97,4 +97,12 @@ a {
 .logo {
   width: 100%;
   height: 100%;
+}
+
+.h-margin-down {
+  margin-bottom: 3rem;
+}
+
+.h-margin-up {
+  margin-top: 3rem;
 }

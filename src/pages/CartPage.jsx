@@ -5,34 +5,33 @@ import { NavLink } from 'react-router'
 export default function CartPage() {
   const { cartItems, clearCart, totalPrice } = useCartStore()
 
-
-  const Empty = () => {
-    return (
-      <>
-        <h1>Cart is empty</h1>
-        <NavLink to={-1}>back</NavLink>
-      </>
-    )
+  const handlePayment = () => {
+    clearCart()
   }
 
-  return (
-    <main>
-      <div>i am cart page</div>
+  if (cartItems.length === 0) {
+    return (
+      <main>
+        <h1>Cart is empty</h1>
+        <NavLink className="semi-big-btn" to='/products'>to products</NavLink>
+      </main>
+    )
+  } else {
+    return (
+      <main>
+        <h1>Cart</h1>
 
-      {cartItems.length === 0
-        ? Empty()
-        : ''}
+        {cartItems.map((item) => (
+          <CartItem
+            key={item.id}
+            {...item}
+          />
+        ))}
 
-      <button onClick={() => clearCart()}>clear cart</button>
+        {cartItems.length !== 0 && <h1>totalPrice: {totalPrice}</h1>}
 
-      {cartItems.map((item) => (
-        <CartItem
-          key={item.id}
-          {...item}
-        />
-      ))}
-
-      {cartItems.length !== 0 && <h1>totalPrice: {totalPrice}</h1>}
-    </main>
-  )
+        <button className='semi-big-btn' onClick={handlePayment}>Procceed to payment</button>
+      </main>
+    )
+  }
 }

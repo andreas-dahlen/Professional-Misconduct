@@ -7,8 +7,9 @@ import ProductItemPage from '../pages/ProductItemPage.jsx'
 import CreateUserPage from '../pages/CreateUserPage.jsx'
 import AdminItemPage from '../pages/AdminItemPage.jsx'
 import AdminEditPage from '../pages/AdminEditPage.jsx'
-import { requireAuth } from '../data/requireAuth.js'
+import { requireAuth } from '../data/redirects/requireAuth.js'
 import AdminCreatePage from '../pages/AdminCreatePage.jsx'
+import { ifAuthed } from '../data/redirects/ifAuthed.js'
 
 export const routing = [
   {
@@ -46,10 +47,12 @@ export const routing = [
       },
       {
         path: '/login',
+        loader: ifAuthed,
         Component: LoginPage
       },
       {
         path: '/create',
+        loader: ifAuthed,
         Component: CreateUserPage
       }
     ]

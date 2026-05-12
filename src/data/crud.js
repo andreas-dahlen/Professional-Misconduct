@@ -20,7 +20,7 @@ export async function getDBProducts() {
 }
 
 /**
- In case of product misshandling. Used to reset the products.
+ In case of product misshandling. Used to reset the products. also needs to call getDBProducts in order to get uid.
  */
 export async function resetDBProducts(products) {
   const col = collection(dataBase, 'products')
@@ -39,14 +39,13 @@ export async function resetDBProducts(products) {
   }
 }
 
-
-
 export async function getUserInfo(loginInfo) {
   const userDocRef = doc(dataBase, 'users', loginInfo.uid)
 
   try {
     const userSnapshot = await getDoc(userDocRef)
     if (!userSnapshot.exists()) return null
+    //TODO change to isAdmin everywhere! :D
     const isAdmin = userSnapshot.data()?.admin ?? false
     return {
       email: loginInfo.email,

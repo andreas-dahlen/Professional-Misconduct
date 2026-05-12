@@ -5,6 +5,8 @@ header {
   align-items: center;
   min-height: var(--header-height);
   background: linear-gradient(to bottom, var(--bkg) 20%, var(--fade) 65%, transparent 90%);
+  padding-bottom: 50px;
+  margin-bottom: 10px;
 
   &>* {
     z-index: 1;
@@ -58,6 +60,7 @@ header {
   padding: 10px;
   margin-top: 10px;
   margin-left: 30px;
+  background: none;
   background: radial-gradient(circle, var(--bkg) 60%, transparent 67%);
 
   &.active {
@@ -123,5 +126,13 @@ header {
     span {
       display: none;
     }
+  }
+}
+
+.header-green {
+  background: linear-gradient(to bottom, var(--green-fade) 20%, var(--green-gray) 65%, transparent 90%);
+
+  .navlink-logo-h {
+    background: radial-gradient(circle, var(--fade) 59%, transparent 0%);
   }
 }

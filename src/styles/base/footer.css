@@ -28,11 +28,6 @@ footer {
     box-shadow: none;
   }
 
-  /* &.active {
-    background: radial-gradient(circle, transparent 60%, var(--red-fade) 10%, transparent 70%);
-    box-shadow: none;
-  } */
-
   @media (max-width: 650px) {
     bottom: 300px;
   }

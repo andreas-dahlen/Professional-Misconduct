@@ -1,6 +1,7 @@
 @import './base/root.css';
-@import './base/header.css';
 @import './base/buttons.css';
+@import './base/input.css';
+@import './base/header.css';
 @import './base/footer.css';
 
 @import './pages/front-page.css';
@@ -8,3 +9,7 @@
 @import './pages/cart-page.css';
 @import './pages/login-page.css';
 @import './pages/admin-page.css';
+
+@import './components/single-list-item.css';
+@import './components/product-item.css';
+@import './components/sonner.css'

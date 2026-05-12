@@ -15,15 +15,15 @@ export default function AdminProductControls() {
 
   const handleAccept = async () => {
     setAwaiting(true)
-    toast.error('loading...', { id: 'login-error' })
+    toast.loading('loading...', { id: 'sonner' })
     const result = await resetProductsHandler(backupProductsList)
 
     if (result?.error) {
-      toast.error(result.error, { id: 'login-error' })
+      toast.error(result.error, { id: 'sonner', duration: Infinity })
       setAwaiting(false)
       return
     }
-    toast.dismiss('login-error')
+    toast.success('done!', { id: 'sonner', duration: 3000 })
     setResetConfirm(false)
     setAwaiting(false)
   }
@@ -38,7 +38,7 @@ export default function AdminProductControls() {
         //TODO try dialog element
         <div className='confirm-popup'>
           <h1>Are you sure you want to reset the products to default?</h1>
-          <div className='accept-Reject'></div>
+          <div className='accept-Reject' />
           <button className="def-btn" onClick={handleAccept} disabled={awaiting}>YES</button>
           <button className="def-btn" onClick={() => setResetConfirm(false)} disabled={awaiting}>NO</button>
         </div>

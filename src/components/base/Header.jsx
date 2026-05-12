@@ -2,6 +2,7 @@ import { NavLink } from 'react-router';
 import { useCartStore } from '../../hooks/storeHooks/useCartStore';
 import { imgPath } from '../../data/settings';
 import LoginHeaderHud from './LoginHeaderHud';
+import { useLocation } from "react-router";
 
 export default function Header() {
 
@@ -13,8 +14,10 @@ export default function Header() {
     return '35px'
   }
 
+  const location = useLocation();
+
   return (
-    <header>
+    <header className={location.pathname === '/' ? '' : 'header-green'}>
 
       <NavLink to='/' className="navlink-logo-h">
 
@@ -23,7 +26,7 @@ export default function Header() {
 
       <div className='header-right'>
         <div className='products-and-cart'>
-          <NavLink to='/products' className="def-btn"> PRODUCTS</NavLink>
+          <NavLink to='/products' className={`def-btn ${location.pathname !== '/products' ? 'cancel-highlight' : ''}`}> PRODUCTS</NavLink>
 
           <div className='cart-and-counter'>
             <NavLink to='cart' className="def-btn"> CART</NavLink>
