@@ -33,8 +33,8 @@ export default function CreateUserPage() {
 
   return (
     <main>
-      <form>
-        <h1> welcome!</h1>
+      <form className='create-form'>
+        <h1> Create </h1>
 
         <InputElement
           type="email"
@@ -50,10 +50,7 @@ export default function CreateUserPage() {
           keyDownFn={handleKeyDown}
         />
 
-        <button className='def-btn btn-anim' onClick={createOrchestrator}>Create</button>
-
-
-        {/* TODO back button? */}
+        <button className='btn-def btn-anim' onClick={createOrchestrator}>Create</button>
       </form>
     </main>
   )

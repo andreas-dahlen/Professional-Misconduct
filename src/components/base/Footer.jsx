@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router'
-import { imgPath } from '../../data/settings'
+import logo from '../../assets/logo.svg';
 
 export default function Footer() {
 
@@ -8,14 +8,12 @@ export default function Footer() {
 
   const atHome = location.pathname === '/'
 
-  const cancelCursor = atHome ? { cursor: 'default' } : null
-
   return (
     <>
       <footer>
         <NavLink to='/' className="navlink-logo-f logo-anim"
-          style={cancelCursor} tabIndex={atHome ? -1 : 0}>
-          <img src={`${imgPath}logo.svg`} className="logo" alt="logo of Professional Misconduct" />
+          data-home={atHome} tabIndex={atHome ? -1 : 0}>
+          <img src={logo} className="logo" alt="logo of Professional Misconduct" />
         </NavLink>
 
         <div className='footer-flexbox'>

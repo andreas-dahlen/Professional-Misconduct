@@ -3,6 +3,7 @@ import { useProductStore } from '../hooks/storeHooks/useProductStore';
 import { useState, useEffect } from 'react';
 import { useSort } from '../hooks/useSort';
 import AdminProductControls from '../components/products/AdminProductControls';
+import { useColorStyle } from '../hooks/useColorStyle';
 
 export default function ProductPage() {
 
@@ -11,12 +12,7 @@ export default function ProductPage() {
   const [search, setSearch] = useState('')
   const [searchFocused, setSearchFocused] = useState(false)
 
-  const handleSearchColor = () => {
-    if (!searchFocused && search === '') return { color: 'inherit' }
-    else if (results.length === 0) return { color: 'var(--red-bright)' }
-    else return { color: 'var(--green-bright)' }
-  }
-
+  const { searchLabelCol, searchInputCol } = useColorStyle()
   const results = useSort(products, search)
 
   useEffect(() => {
@@ -36,8 +32,9 @@ export default function ProductPage() {
   return (
     <main>
       <h1 className='h-margin-down'>Find Your Desk Nemesis</h1>
-      <search className='input-wrapper input-search'>
+      <search className='input-wrapper'>
         <input
+          className='input-anim'
           type="search"
           id='search'
           placeholder=' '
@@ -46,10 +43,12 @@ export default function ProductPage() {
           value={search}
           onChange={(e) =>
             setSearch(e.target.value)}
-          onKeyDown={handleKeyDown} />
+          onKeyDown={handleKeyDown}
+          style={searchInputCol(searchFocused, search, results.length)}
+        />
         <label
           htmlFor="search"
-          style={handleSearchColor()}
+          style={searchLabelCol(searchFocused, search, results.length)}
         >Search</label>
       </search>
 

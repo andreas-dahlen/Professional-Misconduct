@@ -20,9 +20,9 @@ header {
     mask-image: linear-gradient(to bottom, black 80%, transparent);
   }
 
-  @media (max-width: 1100px) {
+  /* @media (max-width: 1100px) {
     justify-content: space-around;
-  }
+  } */
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -63,10 +63,10 @@ header {
   background: none;
   background: radial-gradient(circle, var(--bkg) 60%, transparent 67%);
 
-  &.active {
+  /* &.active {
     background: radial-gradient(circle, var(--bkg) 60%, var(--red-fade) 10%, transparent 70%);
     box-shadow: none;
-  }
+  } */
 
   @media (max-width: 1100px) {
     margin-left: 0;
@@ -115,8 +115,11 @@ header {
   align-items: center;
   gap: 10px;
 
-  @media (max-width: 900px) {
+  &[data-admin="true"] {
+    color: var(--red-bright);
+  }
 
+  @media (max-width: 900px) {
     p {
       display: none;
     }
@@ -134,5 +137,24 @@ header {
 
   .navlink-logo-h {
     background: radial-gradient(circle, var(--fade) 59%, transparent 0%);
+  }
+}
+
+.navlink-back-btn {
+  position: absolute;
+  top: 200px;
+  display: flex;
+  padding: 10px;
+  margin-left: 30px;
+
+  svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  path {
+    fill: black;
+    stroke: var(--text);
+    stroke-width: 1;
   }
 }

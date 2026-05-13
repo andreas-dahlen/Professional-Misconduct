@@ -12,10 +12,10 @@ export default function SonnerTesting() {
 
   return (
     <div style={{ marginTop: '400px' }}>
-      <button className='def-btn' onClick={() => displayToastTest('warning')}> warning </button>
-      <button className='def-btn' onClick={() => displayToastTest('loading')}> loading </button>
-      <button className='def-btn' onClick={() => displayToastTest('error')}> error </button>
-      <button className='def-btn' onClick={() => displayToastTest('success')}> success </button>
+      <button className='btn-def' onClick={() => displayToastTest('warning')}> warning </button>
+      <button className='btn-def' onClick={() => displayToastTest('loading')}> loading </button>
+      <button className='btn-def' onClick={() => displayToastTest('error')}> error </button>
+      <button className='btn-def' onClick={() => displayToastTest('success')}> success </button>
     </div>
   )
 }

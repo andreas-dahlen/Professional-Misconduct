@@ -58,10 +58,6 @@
       background 0.2s ease-in-out;
   }
 
-  /* &::after {
-    width: 300px;
-  } */
-
   &[data-sonner-toast][data-type] [data-close-button]:hover {
     color: var(--green-gray);
     background: var(--green);

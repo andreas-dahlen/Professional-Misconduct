@@ -1,23 +1,18 @@
 import { useFindProduct } from '../hooks/useFindProduct'
 import ProductItem from '../components/products/ProductItem'
-import { useCartStore } from '../hooks/storeHooks/useCartStore'
-import ProductMissing from '../components/products/ProductMissing'
+import ProductError from '../components/products/ProductError'
 
 export default function ProductItemPage() {
 
   const { prod, path } = useFindProduct()
-  const { addToCart } = useCartStore()
-
-  if (!prod) return (<ProductMissing
-    path={path}
-  />
-  )
 
   return (
     <main>
-      <ProductItem prod={prod}>
-        <button className='semi-big-btn btn-anim' onClick={() => addToCart(prod)}>Add to cart</button>
-      </ProductItem>
+
+      {!prod
+        ? <ProductError path={path} />
+        : <ProductItem prod={prod} />
+      }
     </main>
   )
 }

@@ -15,28 +15,29 @@ export const loginSchema = Joi.object({
 export const editSchema = Joi.object({
   name:
     Joi.string()
-      .min(3)
+      .min(1)
       .max(15)
       .required()
       .trim()
       .messages(nameErrorMessage),
   profession:
     Joi.string()
-      .min(3)
-      .max(15)
+      .min(1)
+      .max(20)
       .required()
       .trim()
       .messages(professionErrorMessage),
   description:
     Joi.string()
       .min(10)
-      .max(100)
+      .max(200)
       .required()
       .trim()
       .messages(descriptionErrorMessage),
   price: Joi.number()
     .positive()
     .integer()
+    .max(9999)
     .required()
     .messages(priceErrorMessage)
 })

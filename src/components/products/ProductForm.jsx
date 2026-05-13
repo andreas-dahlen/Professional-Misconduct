@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import { validateProduct } from '../../validation/validation'
 import { imgPath } from '../../data/settings'
-import { NavLink } from 'react-router'
+import { useNavigate } from 'react-router'
 import InputElement from './InputElement'
 
 
-export default function ProductForm({ changes, setChanges, onSave }) {
+export default function ProductForm({ changes, setChanges, onSave, awaiting }) {
 
-  // const prod = useFindProduct()
+  const goTo = useNavigate()
 
-  // const [changes, setChanges] = useState(prod)
   const [msgs, setMsgs] = useState({})
 
   const handleKeyDown = (e) => {
@@ -52,6 +51,7 @@ export default function ProductForm({ changes, setChanges, onSave }) {
 
           <label htmlFor="description">Description</label>
           <textarea
+            className='input-anim'
             id='description'
             spellCheck='true'
             value={changes.description}
@@ -72,17 +72,19 @@ export default function ProductForm({ changes, setChanges, onSave }) {
         <InputElement
           type="number"
           value={changes.price}
+          customLabel="Price"
           changeFn={(value => setChanges(prev => ({ ...prev, price: Number(value) })))}
           keyDownFn={handleKeyDown}
         />
         <span className='error'>{msgs.price}</span>
 
         <div className='product-card-children'>
-          <button type="button" className="def-btn btn-anim" onClick={saveOrchestrator}>Save</button>
+          <button type="button" className="btn-def btn-anim" onClick={saveOrchestrator} disabled={awaiting}>Save</button>
         </div>
       </form >
 
-      <NavLink to={-1} className="def-btn btn-anim">CANCEL</NavLink>
+      <button className="btn-def btn-anim" onClick={() => goTo(-1)}>CANCEL</button>
+
     </main>
   )
 }

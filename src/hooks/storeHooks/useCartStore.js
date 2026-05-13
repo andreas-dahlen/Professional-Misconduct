@@ -10,7 +10,7 @@ export const useCartStore = () => {
       totalItems: s.totalItems ?? 0,
       clearCart: s.clearCart,
       addToCart: s.addToCart,
-      removeFromCart: s.removeFromCart
+      removeFromCart: s.removeFromCart,
     }))
   )
 } 

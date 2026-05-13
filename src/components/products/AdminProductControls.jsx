@@ -23,7 +23,7 @@ export default function AdminProductControls() {
       setAwaiting(false)
       return
     }
-    toast.success('done!', { id: 'sonner', duration: 3000 })
+    toast.success('Product Reset Success!', { id: 'sonner', duration: 3000 })
     setResetConfirm(false)
     setAwaiting(false)
   }
@@ -31,15 +31,15 @@ export default function AdminProductControls() {
   if (!user || !isAdmin) return null
   return (
     <div className='product-page-controls'>
-      <NavLink to='/products/create' className="def-btn btn-anim">Create New Product</NavLink>
-      <button className="def-btn btn-anim" onClick={() => setResetConfirm(true)}>Reset Products</button>
+      <NavLink to='/products/create' className="btn-def btn-semi-big btn-anim">Create</NavLink>
+      <button className="btn-def btn-semi-big btn-anim" onClick={() => setResetConfirm(true)}>Reset</button>
       {resetConfirm &&
         //TODO try dialog element
         <div className='confirm-popup'>
           <h1>Are you sure you want to reset the products to default?</h1>
-          <div className='accept-Reject' />
-          <button className="def-btn btn-anim" onClick={handleAccept} disabled={awaiting}>YES</button>
-          <button className="def-btn btn-anim" onClick={() => setResetConfirm(false)} disabled={awaiting}>NO</button>
+          <div className='accept-reject' />
+          <button className="btn-def btn-anim" onClick={handleAccept} disabled={awaiting}>YES</button>
+          <button className="btn-def btn-anim" onClick={() => setResetConfirm(false)} disabled={awaiting}>NO</button>
         </div>
       }
     </div>

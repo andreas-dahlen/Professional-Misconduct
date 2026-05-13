@@ -1,2 +1,2 @@
 
-export const imgPath = "/Professional-Misconduct/assets/"
+export const imgPath = "/Professional-Misconduct/"

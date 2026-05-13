@@ -35,12 +35,12 @@ export const cartStore = create(
           const itemExisting = s.cartItems.find(i => i.name === name)
           if (!itemExisting) return
 
-          itemExisting > 1
+          itemExisting.quantity > 1
             ? itemExisting.quantity -= 1
             : s.cartItems = s.cartItems.filter(i => i.name !== name)
 
           s.totalPrice -= Number(itemExisting.price)
-          s.totalItems = s.cart.reduce((total, item) => total + item.quantity, 0)
+          s.totalItems = s.cartItems.reduce((total, item) => total + item.quantity, 0)
         })
       }
     })

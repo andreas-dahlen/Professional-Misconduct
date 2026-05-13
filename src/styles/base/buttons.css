@@ -1,4 +1,4 @@
-.def-btn {
+.btn-header {
   border: 3px solid var(--text);
   border-radius: 8px;
   padding: 0.3rem 0 0.1rem;
@@ -8,13 +8,42 @@
   min-width: 120px;
   text-align: center;
   cursor: pointer;
-  max-width: 0;
   margin: 0 auto;
   min-height: 44px;
   font-size: inherit;
 }
 
-.big-btn {
+.btn-def {
+  border: 3px solid var(--text);
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem 0.5rem;
+  min-height: 50px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+.btn-big-front-page {
+  border: 4px solid var(--text);
+  border-radius: 12px;
+  padding: 0.7rem 1.2rem 0.5rem 1.7rem;
+  font-size: 2rem;
+  letter-spacing: 17%;
+  cursor: pointer;
+  margin: 2.5rem 0 7rem;
+
+  @media (max-width: 340px) {
+    padding: 0.7rem 1rem 0.5rem 1.4rem;
+  }
+}
+
+.btn-big {
   border: 4px solid var(--text);
   border-radius: 12px;
   padding: 0.7rem 1.2rem 0.5rem 1.7rem;
@@ -27,22 +56,13 @@
   }
 }
 
-.semi-big-btn {
+.btn-semi-big {
   border: 4px solid var(--text);
   border-radius: 12px;
   padding: 0.5rem 1rem 0.4rem 1rem;
   font-size: 1.5rem;
+  min-width: 210px;
   text-align: center;
-  cursor: pointer;
-}
-
-.small-btn {
-  border: 2px solid var(--text);
-  border-radius: 8px;
-  padding: 0rem 0.1rem;
-  min-width: 10px;
-  text-align: center;
-  font-size: 0.9rem;
   cursor: pointer;
 }
 

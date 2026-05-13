@@ -12,7 +12,7 @@ export default function FrontPage() {
 
         <p className='slogan'> Ready to turn your <br />workspace upside down?</p>
 
-        <NavLink to="/products" role="button" className="big-btn btn-anim">Products</NavLink>
+        <NavLink to="/products" role="button" className="btn-big-front-page btn-anim">Products</NavLink>
 
         <p className='quote'>“It has all the essentials for the <br /> professionally unhinged.” - Bob</p>
       </main>

@@ -2,10 +2,10 @@ import { NavLink } from 'react-router'
 import { useUserStore } from '../../hooks/storeHooks/useUserStore'
 import { useLogoutHandler } from '../../hooks/crudHandlers/useLogoutHandler'
 import { toast } from 'sonner'
-import { useLocation } from 'react-router'
+import { useLocation } from 'react-router';
 
 export default function LoginHeaderHud() {
-  const { user } = useUserStore()
+  const { isAdmin, user } = useUserStore()
 
   const { logoutHandler } = useLogoutHandler()
   const logoutOrchestrator = async () => {
@@ -23,12 +23,12 @@ export default function LoginHeaderHud() {
   const atHome = location.pathname === '/'
 
   const renderLoginOptions = () => {
-    if (user) return <button className='def-btn btn-anim' onClick={logoutOrchestrator} data-home={atHome}>logout</button>
+    if (user) return <button className='btn-header btn-anim' onClick={logoutOrchestrator} data-home={atHome}>logout</button>
     return <NavLink to='/login' tabIndex={atLogin ? -1 : 0} className='text-link text-anim' data-home={atHome}>login</NavLink>
   }
 
   return (
-    <div className='auth-hud'>
+    <div className='auth-hud' data-admin={isAdmin}>
       <p>{user ? user.email : ''}</p>
       <span>{user ? '★' : ''}</span>
       {renderLoginOptions()}

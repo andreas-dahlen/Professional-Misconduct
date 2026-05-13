@@ -26,23 +26,6 @@
   cursor: pointer;
   min-height: 450px;
 
-  transition: var(--def-btn-tranf-and-box-shadow);
-
-  &:hover {
-    z-index: 10;
-    transform: scale(1.02);
-    box-shadow: var(--box-shadow-hover);
-  }
-
-  &:active {
-    transform: scale(0.98);
-    box-shadow: var(--box-shadow-clicked);
-  }
-
-  &:focus-visible {
-    outline: var(--def-focus-outline);
-  }
-
   &:before {
     content: "";
     position: absolute;

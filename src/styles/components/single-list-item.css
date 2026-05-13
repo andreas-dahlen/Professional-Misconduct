@@ -7,7 +7,7 @@
   border-radius: 30px;
   margin: 0rem 2% 8rem 2%;
 
-  transition: var(--def-btn-tranf-and-box-shadow);
+  transition: var(--btn-def-tranf-and-box-shadow);
 
   &:hover {
     z-index: 10;

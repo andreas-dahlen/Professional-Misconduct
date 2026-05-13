@@ -14,6 +14,8 @@
   --green-fade: #7689659f;
   --text-fade: #f6f4d2b0;
 
+  --warning-col: hsl(31deg 91.34% 45.29%);
+
   --hover-shadow-col: black;
 
   --fade-gradient: #24242496, var(--fade);
@@ -42,5 +44,5 @@
   --box-shadow-paged: 0px 0px 20px 0px var(--text-fade);
   --btn-box-shadow-hover: 5px 5px 20px 0px var(--hover-shadow-col);
   --btn-box-shadow-hover-at-home: 5px 5px 20px 0px rgb(165, 165, 165);
-  --def-btn-tranf: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, translate 0.2s ease-in-out;
+  --btn-def-tranf: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, translate 0.2s ease-in-out;
 }
