@@ -1,0 +1,46 @@
+:root {
+  --bkg: #242424;
+  --text: #F6F4D2;
+  --text-grayed: rgb(190, 190, 190);
+  --green: #768965;
+  --red: #A44A3F;
+  --green-gray: #434a3c;
+
+  --red-bright: #c5827a;
+  --green-bright: #c4dead;
+
+  --fade: #242424a4;
+  --red-fade: #a44b3fc5;
+  --green-fade: #7689659f;
+  --text-fade: #f6f4d2b0;
+
+  --hover-shadow-col: black;
+
+  --fade-gradient: #24242496, var(--fade);
+
+  --def-boarder: 3px solid var(--text);
+
+  --header-height: 230px;
+  --header-height-mobile: 272px;
+
+  --footer-height: 350px;
+  --footer-height-mobile: 500px;
+
+  --text-font: 'Lato', sans-serif;
+  --header-font: 'Bebas Neue', cursive;
+
+  --def-text-shadow: 2px 2px 5px black;
+
+  --def-box-shadow-no-color: 0px 0px 10px 2px;
+
+  --box-shadow-hover: 0px 0px 30px 0px var(--green-fade);
+
+  /* --def-box-shadow-no-color: 2px 2px 20px 2px; */
+  --def-focus-outline: 3px solid var(--green-bright);
+
+  --box-shadow-clicked: 0px 0px 10px 1px var(--green-bright);
+  --box-shadow-paged: 0px 0px 20px 0px var(--text-fade);
+  --btn-box-shadow-hover: 5px 5px 20px 0px var(--hover-shadow-col);
+  --btn-box-shadow-hover-at-home: 5px 5px 20px 0px rgb(165, 165, 165);
+  --def-btn-tranf: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, translate 0.2s ease-in-out;
+}

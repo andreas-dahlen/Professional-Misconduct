@@ -6,7 +6,7 @@
   font-family: var(--text-font);
   font-size: 1.2rem;
   text-align: left;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: var(--def-text-shadow);
 
   svg {
     width: 50px;
@@ -27,21 +27,21 @@
   }
 
   &[data-type=error] {
-    box-shadow: 2px 2px 20px 2px var(--red-fade);
+    box-shadow: var(--def-box-shadow-no-color) var(--red-fade);
     color: var(--red-bright);
   }
 
   &[data-type=success] {
-    box-shadow: 2px 2px 20px 2px var(--green-fade);
+    box-shadow: var(--def-box-shadow-no-color) var(--green-fade);
     color: var(--green-bright);
   }
 
   &[data-type=warning] {
-    box-shadow: 2px 2px 20px 2px #a47a3fc5;
+    box-shadow: var(--def-box-shadow-no-color) var(--red-fade);
   }
 
   &[data-type=loading] {
-    box-shadow: 2px 2px 20px 2px var(--text-fade);
+    box-shadow: var(--def-box-shadow-no-color) var(--text-fade);
     color: var(--text);
   }
 
@@ -64,7 +64,7 @@
 
   &[data-sonner-toast][data-type] [data-close-button]:hover {
     color: var(--green-gray);
-    background: var(--text);
+    background: var(--green);
   }
 }
 

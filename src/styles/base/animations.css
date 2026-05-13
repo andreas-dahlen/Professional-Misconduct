@@ -1,0 +1,79 @@
+.btn-anim {
+  transition: var(--def-btn-tranf);
+
+  &:hover {
+    z-index: 10;
+    transform: scale(1.1);
+    box-shadow: var(--btn-box-shadow-hover);
+    translate: -2px -2px;
+
+    &[data-home="true"] {
+      box-shadow: var(--btn-box-shadow-hover-at-home)
+    }
+  }
+
+  &:active,
+  &[data-home="true"]:active {
+    transform: scale(0.98);
+    box-shadow: var(--box-shadow-clicked);
+    translate: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--green-bright);
+  }
+
+  &.active {
+    transform: scale(0.85);
+    cursor: default;
+    translate: none;
+    box-shadow: var(--box-shadow-paged);
+    color: var(--text-grayed);
+    border-color: var(--text-grayed);
+
+    &:hover {
+      box-shadow: var(--box-shadow-paged);
+    }
+  }
+}
+
+.text-anim {
+  transition: var(--def-btn-tranf);
+
+  &:hover {
+    text-decoration: underline;
+
+    z-index: 10;
+    transform: scale(1.1);
+    filter: drop-shadow(5px 5px 20px rgb(0, 0, 0));
+    translate: -2px -2px;
+
+    &[data-home="true"] {
+      filter: drop-shadow(5px 5px 6px rgb(165, 165, 165));
+    }
+
+    &:active,
+    &[data-home="true"]:active {
+      transform: scale(0.98);
+      filter: drop-shadow(0px 0px 10px var(--green-bright));
+      translate: none;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    text-shadow: 2px 0 var(--green-bright), -2px 0 var(--green-bright), 0 2px var(--green-bright), 0 -2px var(--green-bright),
+      2px 2px var(--green-bright), -2px -2px var(--green-bright), 2px -2px var(--green-bright), -2px 2px var(--green-bright);
+    color: black;
+  }
+
+  &.active {
+    transform: scale(0.85);
+    text-decoration: underline;
+    cursor: default;
+    translate: none;
+    color: var(--text-grayed);
+    filter: none;
+  }
+}

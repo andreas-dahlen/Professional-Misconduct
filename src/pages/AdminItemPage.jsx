@@ -22,8 +22,8 @@ export default function AdminItemPage() {
     <main>
 
       <ProductItem prod={prod}>
-        <NavLink to={`/products/${prod.name}/${prod.id}/admin/edit`}>edit</NavLink>
-        <button to={-1} onClick={handleDeletion}>delete</button>
+        <NavLink to={`/products/${prod.name}/${prod.id}/admin/edit`} className="def-btn btn-anim">edit</NavLink>
+        <button className='def-btn btn-anim' onClick={handleDeletion}>delete</button>
       </ProductItem>
 
     </main>

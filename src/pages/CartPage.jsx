@@ -13,7 +13,7 @@ export default function CartPage() {
     return (
       <main>
         <h1>Cart is empty</h1>
-        <NavLink className="semi-big-btn" to='/products'>to products</NavLink>
+        <NavLink className="semi-big-btn btn-anim" to='/products'>to products</NavLink>
       </main>
     )
   } else {
@@ -30,7 +30,7 @@ export default function CartPage() {
 
         {cartItems.length !== 0 && <h1>totalPrice: {totalPrice}</h1>}
 
-        <button className='semi-big-btn' onClick={handlePayment}>Procceed to payment</button>
+        <button className='semi-big-btn btn-anim' onClick={handlePayment}>Commit to the Chaos <br /> Checkout</button>
       </main>
     )
   }

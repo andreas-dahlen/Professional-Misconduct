@@ -16,7 +16,7 @@ export default function ProductItemPage() {
   return (
     <main>
       <ProductItem prod={prod}>
-        <button className='semi-big-btn' onClick={() => addToCart(prod)}>Add to cart</button>
+        <button className='semi-big-btn btn-anim' onClick={() => addToCart(prod)}>Add to cart</button>
       </ProductItem>
     </main>
   )

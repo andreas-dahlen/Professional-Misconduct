@@ -31,18 +31,16 @@ export default function AdminProductControls() {
   if (!user || !isAdmin) return null
   return (
     <div className='product-page-controls'>
-      <NavLink to='/products/create'>Create New Product</NavLink>
-      <button onClick={() => setResetConfirm(true)}>Reset Products</button>
-      {resetConfirm
-        ?
+      <NavLink to='/products/create' className="def-btn btn-anim">Create New Product</NavLink>
+      <button className="def-btn btn-anim" onClick={() => setResetConfirm(true)}>Reset Products</button>
+      {resetConfirm &&
         //TODO try dialog element
         <div className='confirm-popup'>
           <h1>Are you sure you want to reset the products to default?</h1>
           <div className='accept-Reject' />
-          <button className="def-btn" onClick={handleAccept} disabled={awaiting}>YES</button>
-          <button className="def-btn" onClick={() => setResetConfirm(false)} disabled={awaiting}>NO</button>
+          <button className="def-btn btn-anim" onClick={handleAccept} disabled={awaiting}>YES</button>
+          <button className="def-btn btn-anim" onClick={() => setResetConfirm(false)} disabled={awaiting}>NO</button>
         </div>
-        : ''
       }
     </div>
   )

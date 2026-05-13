@@ -8,10 +8,13 @@ export default function Footer() {
 
   const atHome = location.pathname === '/'
 
+  const cancelCursor = atHome ? { cursor: 'default' } : null
+
   return (
     <>
       <footer>
-        <NavLink to='/' className="navlink-logo-f" style={atHome ? { cursor: 'default' } : null}>
+        <NavLink to='/' className="navlink-logo-f logo-anim"
+          style={cancelCursor} tabIndex={atHome ? -1 : 0}>
           <img src={`${imgPath}logo.svg`} className="logo" alt="logo of Professional Misconduct" />
         </NavLink>
 

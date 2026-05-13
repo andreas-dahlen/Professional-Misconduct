@@ -77,65 +77,12 @@ export default function ProductForm({ changes, setChanges, onSave }) {
         />
         <span className='error'>{msgs.price}</span>
 
-        {/* <label htmlFor='name'>Product Name</label>
-        <input
-          id='name'
-          type='text'
-          value={changes.name}
-          onChange={(e) =>
-            setChanges(prev =>
-              ({ ...prev, name: e.target.value }))}
-          onKeyDown={handleKeyDown} />
-        <span className='error'>{msgs.name}</span>
-
-        <label htmlFor="profession">Profession</label>
-        <input
-          id='profession'
-          type='text'
-          value={changes.profession}
-          onChange={(e) =>
-            setChanges(prev =>
-              ({ ...prev, profession: e.target.value }))}
-          onKeyDown={handleKeyDown} />
-        <span className='error'>{msgs.profession}</span> */}
-        {/* <div className='img-and-text img-and-text-edit'>
-
-          <label htmlFor="description">Description</label>
-          <textarea
-            id='description'
-            spellCheck='true'
-            value={changes.description}
-            onChange={(e) =>
-              setChanges(prev =>
-                ({ ...prev, description: e.target.value }))}
-          />
-          <span className='error'>{msgs.description}</span>
-          <div className='product-img'>
-            {changes.img
-              ? <img src={imgPath + changes.img} />
-              : <img src={`${imgPath}placeholder.png`} />
-            }
-          </div>
-
-        </div> */}
-
-        {/* <label htmlFor="price">Price</label>
-        <input
-          id='price'
-          type='number'
-          value={changes.price}
-          onChange={(e) =>
-            setChanges(prev =>
-              ({ ...prev, price: Number(e.target.value) }))}
-        />
-        <span className='error'>{msgs.price}</span> */}
-
         <div className='product-card-children'>
-          <button type="button" onClick={saveOrchestrator}>Save</button>
+          <button type="button" className="def-btn btn-anim" onClick={saveOrchestrator}>Save</button>
         </div>
       </form >
 
-      <NavLink to={-1} className="def-btn">CANCEL</NavLink>
+      <NavLink to={-1} className="def-btn btn-anim">CANCEL</NavLink>
     </main>
   )
 }

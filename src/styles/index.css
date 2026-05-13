@@ -1,4 +1,5 @@
 @import './base/root.css';
+@import './base/variables.css';
 @import './base/buttons.css';
 @import './base/input.css';
 @import './base/header.css';
@@ -12,4 +13,7 @@
 
 @import './components/single-list-item.css';
 @import './components/product-item.css';
-@import './components/sonner.css'
+@import './components/sonner.css';
+
+
+@import './base/animations.css';

@@ -1,10 +1,11 @@
-import { NavLink } from 'react-router'
 import { imgPath } from '../../data/settings'
 import { useUserStore } from '../../hooks/storeHooks/useUserStore'
+import { useNavigate } from 'react-router'
 
 export default function ProductItem({ prod, children }) {
 
   const { isAdmin } = useUserStore()
+  const goTo = useNavigate()
 
   return (
     <>
@@ -21,14 +22,14 @@ export default function ProductItem({ prod, children }) {
             <div className='text-bg-box'>
 
               <p className='description'>{prod.description}</p>
-              <h2>{prod.price}</h2>
+              <h2>{prod.price} kr</h2>
             </div>
           </div>
         </div>
         <div className='product-card-children'>
           {children}
         </div>
-        <NavLink to={-1} className="def-btn cancel-highlight">BACK</NavLink>
+        <button className="def-btn btn-anim" onClick={() => goTo(-1)}>BACK</button>
       </article >
 
     </>

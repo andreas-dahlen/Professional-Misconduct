@@ -26,21 +26,21 @@
   cursor: pointer;
   min-height: 450px;
 
-  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition: var(--def-btn-tranf-and-box-shadow);
 
   &:hover {
     z-index: 10;
     transform: scale(1.02);
-    box-shadow: 0px 5px 15px var(--red-fade);
+    box-shadow: var(--box-shadow-hover);
   }
 
   &:active {
     transform: scale(0.98);
-    box-shadow: 0px 5px 10px var(--text);
+    box-shadow: var(--box-shadow-clicked);
   }
 
-  &:focus {
-    outline: 2px solid white;
+  &:focus-visible {
+    outline: var(--def-focus-outline);
   }
 
   &:before {

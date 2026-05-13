@@ -10,7 +10,7 @@ export default function CartItem({ id, name, img, price }) {
           <img src={imgPath + img} />
         </div>
       </div>
-      <h3>{price}</h3>
+      <h3>{price} kr</h3>
     </article >
   )
 }

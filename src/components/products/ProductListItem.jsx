@@ -12,7 +12,7 @@ export default function ProductListItem({ id, name, profession, img, description
   return (
     <article tabIndex={0}
       id={`product-${id}`}
-      className={single ? 'individual-card-bg' : 'product-card-bg'}
+      className={`${single ? 'individual-card-bg' : 'product-card-bg'} card-anim`}
       onClick={() => productNavigation(name, id)}
       onKeyDown={handleKeyDown}>
       <div className='product-card'>

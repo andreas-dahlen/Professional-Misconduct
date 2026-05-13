@@ -51,14 +51,7 @@ footer {
 
   p {
     font-size: 0.85rem;
-    filter: drop-shadow(0 0 3px black);
+    text-shadow: var(--def-text-shadow);
     line-height: 3ch;
   }
-}
-
-.login-btn {
-  margin-bottom: 1rem;
-  background: none;
-  font-size: 0.8rem;
-  filter: drop-shadow(0 0 3px black);
 }

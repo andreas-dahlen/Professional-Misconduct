@@ -60,7 +60,7 @@ export default function LoginPage() {
           ? <h1>{`user: ${user?.email} 
           ${isAdmin ? 'admin user' : ''}
           `}</h1>
-          : <h1> Login</h1>
+          : <h1>Login</h1>
         }
         <InputElement
           type="email"
@@ -74,11 +74,11 @@ export default function LoginPage() {
           changeFn={setPassword}
           keyDownFn={handleKeyDown}
         />
-        <button className='big-btn' onClick={loginOrchestrator}>login</button>
+        <button className='big-btn btn-anim' onClick={loginOrchestrator}>login</button>
 
-        <button className='def-btn google-btn' onClick={loginGoogleOrchestrator}>sign in with google</button>
+        <button className='def-btn btn-anim' onClick={loginGoogleOrchestrator}>sign in with google</button>
 
-        <NavLink className='text-link' to={'/create'}> Don't have an account? create one!</NavLink>
+        <NavLink className='text-link text-anim' to={'/create'}> Don't have an account? create one!</NavLink>
       </form>
     </main>
   )

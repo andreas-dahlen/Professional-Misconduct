@@ -10,6 +10,8 @@
   cursor: pointer;
   max-width: 0;
   margin: 0 auto;
+  min-height: 44px;
+  font-size: inherit;
 }
 
 .big-btn {
@@ -44,8 +46,8 @@
   cursor: pointer;
 }
 
-.cancel-highlight {
-  &.active {
-    box-shadow: none;
-  }
+.text-link {
+  box-shadow: none;
+  background: none;
+  text-shadow: var(--def-text-shadow);
 }

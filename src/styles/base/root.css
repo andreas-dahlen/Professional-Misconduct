@@ -1,30 +1,3 @@
-:root {
-  --bkg: #242424;
-  --text: #F6F4D2;
-  --green: #768965;
-  --red: #A44A3F;
-  --green-gray: #434a3c;
-
-  --red-bright: #c5827a;
-  --green-bright: #c4dead;
-
-  --fade: #242424a4;
-  --red-fade: #a44b3fc5;
-  --green-fade: #7689659f;
-  --text-fade: #f6f4d2b0;
-
-  --fade-gradient: #24242496, var(--fade);
-
-  --header-height: 230px;
-  --header-height-mobile: 272px;
-
-  --footer-height: 350px;
-  --footer-height-mobile: 500px;
-
-  --text-font: 'Lato', sans-serif;
-  --header-font: 'Bebas Neue', cursive;
-}
-
 *,
 *::before,
 *::after {
@@ -46,7 +19,6 @@ body {
   color: var(--text);
   background-color: var(--bkg);
   font-size: 1rem;
-  text-shadow: 0 0 3px black;
 }
 
 #root {
@@ -72,9 +44,6 @@ main {
 button,
 nav,
 a {
-  /* font: inherit; */
-  /* color: inherit; */
-  /* border: none; */
   background-color: var(--fade);
   text-decoration: none;
 }
@@ -88,10 +57,6 @@ a {
   font-family: var(--header-font);
   letter-spacing: 7%;
   color: var(--text);
-}
-
-.active {
-  box-shadow: 0px 0px 8px 5px var(--red-fade);
 }
 
 .logo {

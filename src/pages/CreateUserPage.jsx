@@ -50,7 +50,7 @@ export default function CreateUserPage() {
           keyDownFn={handleKeyDown}
         />
 
-        <button className='def-btn' onClick={createOrchestrator}>create</button>
+        <button className='def-btn btn-anim' onClick={createOrchestrator}>Create</button>
 
 
         {/* TODO back button? */}
