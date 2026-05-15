@@ -1,6 +1,6 @@
 import { useColorStyle } from '../../hooks/useColorStyle'
 
-export default function InputElement({ value, type, id, changeFn, keyDownFn, inputClass, wrapperClass, customLabel, colorType, override, setOverride }) {
+export default function InputElement({ value, type, id, changeFn, keyDownFn, inputClass, wrapperClass, customLabel, autoComplete, colorType, override, setOverride }) {
 
 
   const { validationInputCol, validationLabelCol } = useColorStyle()
@@ -18,16 +18,18 @@ export default function InputElement({ value, type, id, changeFn, keyDownFn, inp
         type={type}
         placeholder=' '
         value={value}
+        autoComplete={autoComplete || 'off'}
         className={`def-input input-anim ${inputClass || ''}`}
         style={{ ...inputCol, ...labelCol }}
         onChange={(e) => {
-          { colorType ? setOverride(true) : '' }
+          { colorType ? setOverride?.(true) : '' }
           changeFn(e.target.value)
         }}
         onKeyDown={keyDownFn}
       />
       <label htmlFor={id || type} style={{ textTransform: 'capitalize', ...labelCol }}>{customLabel || id || type}</label>
     </div>
+
   )
 }
 

@@ -19,6 +19,16 @@
   }
 }
 
+.input-slim {
+  max-width: 550px;
+
+  @media (max-width: 625px) {
+    margin-left: 30px;
+    margin-right: 30px;
+
+  }
+}
+
 .product-card-bg {
   position: relative;
   background: var(--green);

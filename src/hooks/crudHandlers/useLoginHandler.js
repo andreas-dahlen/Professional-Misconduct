@@ -25,7 +25,12 @@ export function useLoginHandler() {
 
     setUser(userInfo)
     setIsAdmin(userInfo.isAdmin)
-    if (userInfo.isAdmin) goTo('/')
+    if (userInfo.isAdmin === true) {
+      goTo('/products')
+      window.scrollTo(0, 0)
+    }
+    if (userInfo.isAdmin === false) goTo('/')
+    return userInfo.isAdmin
   }
   return { loginHandler }
 }

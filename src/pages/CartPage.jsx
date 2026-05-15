@@ -13,32 +13,29 @@ export default function CartPage() {
   if (cartItems.length === 0) {
     return (
       <main className='cart-main'>
-        <h1>Cart is empty</h1>
+        <h1 className='h-margin-down'>Suspiciously Empty</h1>
         <NavLink className="btn-semi-big btn-anim" to='/products'>to products</NavLink>
       </main>
     )
   } else {
     return (
       <main className='cart-main'>
-        <h1>Cart</h1>
+        <h1>Your Misconduct</h1>
+        <div className='cart-outline'>
+          <div className='cart-background'>
+            {cartItems.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+              />
+            ))}
+          </div>
+        </div>
+        {cartItems.length !== 0 && <h1>total Price: {totalPrice} kr</h1>}
 
-        {cartItems.length === 2
-          ? <CartItem
-            key={cartItems[0].id}
-            item={cartItems[0]}
-            single={true}
-          />
-          : cartItems.map((item) => (
-            <CartItem
-              key={item.id}
-              item={item}
-            />
-          ))}
+        <h3>Commit to the Chaos</h3>
 
-        {cartItems.length !== 0 && <h1>totalPrice: {totalPrice}</h1>}
-
-
-        <button className='btn-semi-big btn-anim' onClick={handlePayment}>Commit to the Chaos <br /> Checkout</button>
+        <button className='btn-semi-big btn-anim' onClick={handlePayment}> Checkout</button>
       </main>
     )
   }

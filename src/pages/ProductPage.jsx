@@ -28,16 +28,17 @@ export default function ProductPage() {
     if (e.key === 'Enter') e.target.blur()
   }
 
-
   return (
     <main>
       <h1 className='h-margin-down'>Find Your Desk Nemesis</h1>
-      <search className='input-wrapper'>
+      <AdminProductControls />
+      <search className='input-wrapper input-slim'>
         <input
           className='input-anim'
           type="search"
           id='search'
           placeholder=' '
+          autoComplete='off'
           onFocus={() => setSearchFocused(true)}
           onBlur={() => setSearchFocused(false)}
           value={search}
@@ -52,7 +53,7 @@ export default function ProductPage() {
         >Search</label>
       </search>
 
-      <AdminProductControls />
+
 
 
       {results.length === 0

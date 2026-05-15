@@ -1,11 +1,9 @@
-import { useNavigate } from 'react-router'
 import { signUserOut } from '../../data/auth'
 import { useUserStore } from '../storeHooks/useUserStore'
 
 export function useLogoutHandler() {
 
   const { setIsAdmin, deleteUser } = useUserStore()
-  const goTo = useNavigate()
 
   const logoutHandler = async () => {
     const info = await signUserOut()
@@ -14,7 +12,6 @@ export function useLogoutHandler() {
     }
     deleteUser()
     setIsAdmin(false)
-    goTo('/')
   }
   return { logoutHandler }
 }

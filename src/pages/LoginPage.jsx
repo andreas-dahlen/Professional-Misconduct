@@ -2,56 +2,45 @@ import { useState } from 'react'
 import { loginSchema } from '../validation/schemas'
 import { toast } from 'sonner'
 import { useLoginHandler } from '../hooks/crudHandlers/useLoginHandler'
-import { getLoginErrorMessage } from '../validation/messages'
+import { getLoginWarningMsg } from '../validation/messages'
 import { NavLink } from 'react-router'
 import { useGoogleHandler } from '../hooks/crudHandlers/useGoogleHandler'
 import InputElement from '../components/products/InputElement'
+import { useAsyncAction } from '../hooks/useAsyncAction'
 
 export default function LoginPage() {
-  const { loginHandler } = useLoginHandler()
-  const { googleHandler } = useGoogleHandler()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const handleKeyDown = (e) => e.key === 'Enter' && loginOrchestrator()
-
   const [valType, setValType] = useState(null)
   const [override, setOverride] = useState(false)
+
+  const { loginHandler } = useLoginHandler()
+  const { googleHandler } = useGoogleHandler()
+  const { isDisabled, asyncAction } = useAsyncAction()
+
+  const handleKeyDown = (e) => e.key === 'Enter' && loginOrchestrator()
 
   const loginOrchestrator = async (e) => {
     e?.preventDefault()
     setOverride(false)
     const { error } = loginSchema.validate({ email, password }, { abortEarly: false })
-    //joi returns truthy if something is wrong
+
     if (error) {
       setValType('warning')
-      toast.warning(getLoginErrorMessage(email, password), { id: 'sonner', duration: Infinity })
+      toast.warning(getLoginWarningMsg(email, password), { id: 'sonner', duration: Infinity })
       return
     }
-    toast.loading('loading...', { id: 'sonner' })
-    const result = await loginHandler(email, password)
 
-    if (result?.error) {
-      setValType('error')
-      toast.error(result.error, { id: 'sonner', duration: Infinity })
-      return
-    } else {
-      setValType('success')
-      toast.success('success!', { id: 'sonner', duration: 3000 })
-    }
+    const isSuccess = await asyncAction(() => loginHandler(email, password), 'welcome')
+
+    setValType(isSuccess ? 'success' : 'error')
   }
 
   const loginGoogleOrchestrator = async (e) => {
     e?.preventDefault()
-    toast.loading('loading...', { id: 'sonner' })
-    const result = await googleHandler()
-
-    if (result?.error) {
-      toast.error(result.error, { id: 'sonner', duration: Infinity })
-    } else {
-      toast.success('success!', { id: 'sonner', duration: 3000 })
-    }
+    asyncAction(() => googleHandler())
+    setValType(null)
   }
 
   return (
@@ -61,6 +50,7 @@ export default function LoginPage() {
 
         <InputElement
           type="email"
+          autoComplete="email"
           value={email}
           override={override}
           setOverride={setOverride}
@@ -70,6 +60,7 @@ export default function LoginPage() {
         />
         <InputElement
           type="password"
+          autoComplete="current-password"
           value={password}
           override={override}
           setOverride={setOverride}
@@ -77,11 +68,11 @@ export default function LoginPage() {
           changeFn={setPassword}
           keyDownFn={handleKeyDown}
         />
-        <button className='btn-big btn-anim' onClick={loginOrchestrator}>login</button>
+        <button className='btn-semi-big btn-anim' onClick={loginOrchestrator} disabled={isDisabled}>login</button>
 
-        <button className='btn-def btn-anim' onClick={loginGoogleOrchestrator}>sign in with google</button>
+        <button className='btn-def btn-anim' onClick={loginGoogleOrchestrator} disabled={isDisabled}>sign in with google</button>
 
-        <NavLink className='text-link text-anim' to={'/create'}> Don't have an account? create one!</NavLink>
+        <NavLink className='text-link text-anim' to={'/create'} onClick={e => isDisabled && e.preventDefault()}> Don't have an account? create one!</NavLink>
       </form>
     </main>
   )

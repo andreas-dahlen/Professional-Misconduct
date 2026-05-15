@@ -1,0 +1,79 @@
+form {
+
+  .product-item-box .content-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    /* .input-wrapper:first-child {
+      margin: 20px;
+    } */
+
+    .input-wrapper {
+      margin: 30px 0 0 0;
+    }
+
+    .img-and-text {
+      margin-top: 30px;
+      /* margin-bottom: 10px; */
+    }
+
+    span {
+      min-height: 1.2rem;
+    }
+  }
+
+  .error {
+    color: var(--red-bright);
+  }
+
+  span,
+  input,
+  label {
+    text-shadow: var(--def-text-shadow);
+  }
+
+  .input-wrapper .desc-wrapper {
+    margin-top: 0;
+  }
+
+  .desc-wrapper {
+    padding: 5px;
+    width: 50%;
+    margin-top: 0;
+
+    label {
+      top: -60px;
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  textarea {
+    padding: 13px;
+    resize: none;
+    min-height: 256px;
+    width: 100%;
+
+    font-family: var(--text-font);
+    color: var(--text);
+    background-color: black;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 2px solid var(--text);
+
+    @media (max-width: 600px) {
+      min-height: 150px;
+    }
+  }
+}
+
+/* resize — controls the drag handle: none, horizontal, vertical, both
+overflow-y — scrollbar behavior when content overflows
+line-height — important for readability since textareas are multiline
+white-space / word-wrap — how text wraps
+scrollbar-width / scrollbar-color — style the scrollbar (Firefox native, Chrome needs ::-webkit-scrollbar)
+
+the drag resize handle in the bottom-right corner is the most "textarea specific" thing — most designs just do resize: none and set a fixed or min/max height. */

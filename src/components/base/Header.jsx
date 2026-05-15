@@ -10,8 +10,8 @@ export default function Header() {
   const { totalItems } = useCartStore()
 
   const counterSize = useMemo(() => {
-    if (totalItems > 99) return '50px'
-    if (totalItems > 10) return '40px'
+    if (totalItems > 99) return '45px'
+    if (totalItems >= 10) return '40px'
     return '35px'
   }, [totalItems]);
 

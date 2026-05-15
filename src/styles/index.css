@@ -4,17 +4,17 @@
 @import './base/input.css';
 @import './base/header.css';
 @import './base/footer.css';
+@import './base/form.css';
 
 @import './pages/front-page.css';
 @import './pages/product-page.css';
 @import './pages/cart-page.css';
 @import './pages/login-page.css';
-@import './pages/admin-page.css';
+@import './base/admin.css';
 
 @import './components/single-list-item.css';
 @import './components/product-item.css';
 @import './components/sonner.css';
-@import './components/admin-products-control.css';
 
 
 @import './base/animations.css';

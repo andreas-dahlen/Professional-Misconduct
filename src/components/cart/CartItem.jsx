@@ -2,7 +2,7 @@ import { imgPath } from '../../data/settings'
 import { useCartQuantity } from '../../hooks/storeHooks/useCartQuantity'
 import { useCartStore } from '../../hooks/storeHooks/useCartStore'
 
-export default function CartItem({ item, single }) {
+export default function CartItem({ item }) {
 
   const { addToCart, removeFromCart } = useCartStore()
 
@@ -10,28 +10,32 @@ export default function CartItem({ item, single }) {
 
   return (
 
-    <article id={`product-${item.id}`} className={`${single ? 'individual-cart-card' : 'cart-card cart-card-anim'}`}>
-      <h2>{item.name}</h2>
-      <div className='img-and-text'>
+    <article id={`product-${item.id}`} className='cart-card cart-card-anim'>
+
+      <div className='cart-row'>
+
         <div className='product-img'>
           <img src={imgPath + item.img} />
         </div>
+
+        <div className='cart-content'>
+          <h1>{item.name}</h1>
+          <div className='remove-quantity-add'>
+
+            <h4>quantity: {quantity} </h4>
+            <button className='btn-add btn-anim'
+              onClick={() => removeFromCart(item.name)}>
+              -
+            </button>
+
+            <button className='btn-add btn-anim'
+              onClick={() => addToCart(item)}>
+              +
+            </button>
+          </div>
+          <h3>{item.price} kr</h3>
+        </div>
       </div>
-
-      <div className='remove-quantity-add'>
-        <button className='add-btn btn-anim'
-          onClick={() => removeFromCart(item.name)}>
-          -
-        </button>
-
-        <p>quantity: {quantity} </p>
-
-        <button className='add-btn btn-anim'
-          onClick={() => addToCart(item)}>
-          +
-        </button>
-      </div>
-      <h3>{item.price} kr</h3>
     </article >
   )
 }

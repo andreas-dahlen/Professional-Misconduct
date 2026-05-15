@@ -1,4 +1,4 @@
-export function getLoginErrorMessage(email, password) {
+export function getLoginWarningMsg(email, password) {
   if (email === '' && password === '') return 'Please enter email and password'
   if (email === '') return 'Please enter a valid email'
   if (password === '') return 'Please enter a valid password'
