@@ -4,9 +4,13 @@
   --success-bg: var(--green-gray);
   --normal-bg: var(--green-gray);
   font-family: var(--text-font);
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   text-align: left;
   text-shadow: var(--def-text-shadow);
+
+  [data-sonner-toast][data-styled=true] {
+    font-size: 1.2rem;
+  }
 
   svg {
     width: 50px;
