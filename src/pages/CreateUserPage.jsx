@@ -4,7 +4,7 @@ import { toast } from 'sonner'
 import { getLoginWarningMsg } from '../validation/messages'
 import { useCreateUserHandler } from '../hooks/crudHandlers/useCreateUserHandler'
 import InputElement from '../components/products/InputElement'
-import { useAsyncAction } from '../hooks/useAsyncAction'
+import { useAsyncAction } from '../hooks/utils/useAsyncAction'
 
 export default function CreateUserPage() {
   const [email, setEmail] = useState('')
@@ -29,7 +29,6 @@ export default function CreateUserPage() {
   return (
     <main>
       <form className='create-form'>
-        <h1> Create </h1>
 
         <InputElement
           type="email"

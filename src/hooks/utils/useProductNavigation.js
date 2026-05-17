@@ -1,5 +1,5 @@
-import { useProductStore } from './storeHooks/useProductStore'
-import { useUserStore } from './storeHooks/useUserStore'
+import { useProductStore } from '../storeHooks/useProductStore'
+import { useUserStore } from '../storeHooks/useUserStore'
 import { useNavigate } from 'react-router'
 
 export function useProductNavigation() {

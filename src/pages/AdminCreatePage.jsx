@@ -2,12 +2,12 @@ import { useState } from 'react'
 
 import ProductForm from '../components/products/ProductForm'
 import { useCreateProductHandler } from '../hooks/crudHandlers/useCreateProductHandler'
-import { useAsyncAction } from '../hooks/useAsyncAction'
+import { useAsyncAction } from '../hooks/utils/useAsyncAction'
 
 export default function AdminCreatePage() {
 
 
-  const [changes, setChanges] = useState({ name: '', profession: '', description: '', price: '' })
+  const [changes, setChanges] = useState({ name: '', profession: '', description: '', price: '', img: '' })
 
   const { createProductHandler } = useCreateProductHandler()
 

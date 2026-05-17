@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router'
-import { imgPath } from '../data/settings'
+import { imgPath } from '../hooks/utils/findImg'
 
 export default function FrontPage() {
 

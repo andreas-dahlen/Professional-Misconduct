@@ -1,9 +1,12 @@
 import ProductListItem from '../components/products/ProductListItem';
 import { useProductStore } from '../hooks/storeHooks/useProductStore';
 import { useState, useEffect } from 'react';
-import { useSort } from '../hooks/useSort';
+
 import AdminProductControls from '../components/products/AdminProductControls';
-import { useColorStyle } from '../hooks/useColorStyle';
+import { useColorStyle } from '../hooks/utils/useColorStyle';
+import { useFilter } from '../hooks/utils/useFilter'
+import { useSort } from '../hooks/utils/useSort';
+import SortDropdown from '../components/products/SortDropdown';
 
 export default function ProductPage() {
 
@@ -13,7 +16,8 @@ export default function ProductPage() {
   const [searchFocused, setSearchFocused] = useState(false)
 
   const { searchLabelCol, searchInputCol } = useColorStyle()
-  const results = useSort(products, search)
+  const filtered = useFilter(products, search)
+  const { results, handleSort, sortConfig } = useSort(filtered)
 
   useEffect(() => {
     if (lastVisitedId) {
@@ -32,27 +36,35 @@ export default function ProductPage() {
     <main>
       <h1 className='h-margin-down'>Find Your Desk Nemesis</h1>
       <AdminProductControls />
-      <search className='input-wrapper input-slim'>
-        <input
-          className='input-anim'
-          type="search"
-          id='search'
-          placeholder=' '
-          autoComplete='off'
-          onFocus={() => setSearchFocused(true)}
-          onBlur={() => setSearchFocused(false)}
-          value={search}
-          onChange={(e) =>
-            setSearch(e.target.value)}
-          onKeyDown={handleKeyDown}
-          style={searchInputCol(searchFocused, search, results.length)}
-        />
-        <label
-          htmlFor="search"
-          style={searchLabelCol(searchFocused, search, results.length)}
-        >Search</label>
-      </search>
 
+
+      <div className='search-and-sort'>
+        <search className='input-wrapper input-slim'>
+          <input
+            className='input-anim'
+            type="search"
+            id='search'
+            placeholder=' '
+            autoComplete='off'
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setSearchFocused(false)}
+            value={search}
+            onChange={(e) =>
+              setSearch(e.target.value)}
+            onKeyDown={handleKeyDown}
+            style={searchInputCol(searchFocused, search, results.length)}
+          />
+          <label
+            htmlFor="search"
+            style={searchLabelCol(searchFocused, search, results.length)}
+          >Search</label>
+        </search>
+
+        <SortDropdown
+          handleSort={handleSort}
+          sortConfig={sortConfig}
+        />
+      </div>
 
 
 

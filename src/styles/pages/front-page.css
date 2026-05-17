@@ -5,10 +5,10 @@
   position: relative;
   margin-top: calc(-1 * var(--header-height));
   z-index: -1;
-
+  /* 
   @media (max-width: 460px) {
     --header-height: var(--header-height-mobile);
-  }
+  } */
 
   &::after {
     content: '';
@@ -44,9 +44,9 @@
   font-size: 1.2rem;
   margin-top: 10.8rem;
 
-  @media (max-width: 351px) {
+  /* @media (max-width: 351px) {
     padding: 0.3rem 0 0.6rem 0;
-  }
+  } */
 
   &::before {
     position: absolute;

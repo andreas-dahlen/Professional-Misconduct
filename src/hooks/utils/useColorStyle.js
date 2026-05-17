@@ -34,8 +34,8 @@ export const useColorStyle = () => {
       return { borderColor: 'var(--warning-col)' }
     } else if (type === 'success')
       return { borderColor: 'var(--green-bright)' }
-    else return { color: 'inherit' }
-
+    else return { borderColor: 'inherit' }
   }
+
   return { searchLabelCol, searchInputCol, validationLabelCol, validationInputCol }
 }

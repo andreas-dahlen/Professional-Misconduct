@@ -3,7 +3,7 @@ import { NavLink } from 'react-router'
 import { useUserStore } from '../../hooks/storeHooks/useUserStore'
 import { useResetProductsHandler } from '../../hooks/crudHandlers/useResetProductsHandler'
 import { backupProductsList } from '../../data/backupProductsList'
-import { useAsyncAction } from '../../hooks/useAsyncAction'
+import { useAsyncAction } from '../../hooks/utils/useAsyncAction'
 import YesNoPopup from './YesNoPopup'
 
 export default function AdminProductControls() {

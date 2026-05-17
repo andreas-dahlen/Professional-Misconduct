@@ -1,0 +1,16 @@
+.about-us {
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  p {
+    padding: 25px;
+    line-height: 1.5rem;
+    /* text-align: left; */
+  }
+}

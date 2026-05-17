@@ -12,9 +12,9 @@ export const nameErrorMessage = {
   'string.max': "Product name is too long"
 }
 export const professionErrorMessage = {
-  'string.empty': "Please enter a profession",
-  'string.min': "Profession is too short",
-  'string.max': "Profession is too long"
+  'string.empty': "Please enter a role",
+  'string.min': "Role is too short",
+  'string.max': "Role is too long"
 }
 
 export const descriptionErrorMessage = {
@@ -29,4 +29,8 @@ export const priceErrorMessage = {
   'number.base': "Price must be a number",
   'number.max': "Noone is going to buy that",
   'number.integer': "Whole numbers only, we don't do cents here"
+}
+
+export const imgErrorMessage = {
+  'string.invalidImg': 'Please enter a valid https URL or leave empty'
 }

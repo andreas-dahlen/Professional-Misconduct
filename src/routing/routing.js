@@ -10,6 +10,7 @@ import AdminEditPage from '../pages/AdminEditPage.jsx'
 import { requireAuth } from '../data/redirects/requireAuth.js'
 import AdminCreatePage from '../pages/AdminCreatePage.jsx'
 import { ifAuthed } from '../data/redirects/ifAuthed.js'
+import AboutUs from '../pages/AboutUs.jsx'
 
 export const routing = [
   {
@@ -54,6 +55,10 @@ export const routing = [
         path: '/create',
         loader: ifAuthed,
         Component: CreateUserPage
+      },
+      {
+        path: '/about',
+        Component: AboutUs
       }
     ]
   }

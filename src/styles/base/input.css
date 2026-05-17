@@ -1,7 +1,6 @@
 .input-wrapper {
   position: relative;
   max-width: 100%;
-  margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -27,7 +26,9 @@ input {
 }
 
 input:focus+label,
-input:not(:placeholder-shown)+label {
+input:not(:placeholder-shown)+label,
+textarea:focus+label,
+textarea:not(:placeholder-shown)+label {
   font-size: 1.3rem;
   transform: translateY(-140%);
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { validateProduct } from '../../validation/validation'
-import { imgPath } from '../../data/settings'
 import { useNavigate } from 'react-router'
 import InputElement from './InputElement'
-import { useColorStyle } from '../../hooks/useColorStyle'
+import { useColorStyle } from '../../hooks/utils/useColorStyle'
+import { findImg } from '../../hooks/utils/findImg'
 
 export default function ProductForm({ changes, setChanges, onSave, isDisabled }) {
 
@@ -11,7 +11,7 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
 
   const [msgs, setMsgs] = useState({})
   const [fieldColors, setFieldColors] = useState({
-    name: null, profession: null, price: null, description: null
+    name: null, profession: null, price: null, description: null, img: null
   })
 
   const { validationInputCol, validationLabelCol } = useColorStyle()
@@ -27,8 +27,13 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
     e?.preventDefault()
     const errors = validateProduct(changes)
 
-    const fields = ['name', 'profession', 'price', 'description']
-    setFieldColors(Object.fromEntries(fields.map(field => [field, errors[field] ? 'error' : 'success'])))
+    setFieldColors({
+      name: errors.name ? 'error' : 'success',
+      profession: errors.profession ? 'error' : 'success',
+      price: errors.price ? 'error' : 'success',
+      description: errors.description ? 'error' : 'success',
+      img: errors.img ? 'error' : 'success'
+    })
 
     if (Object.keys(errors).length > 0) return setMsgs(errors)
     onSave(changes)
@@ -36,6 +41,13 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
 
   return (
     <main>
+      <div className='product-page-controls'>
+
+        <button type="button" className="btn-semi-big btn-anim" onClick={saveOrchestrator} disabled={isDisabled}>Save</button>
+        <button className="btn-semi-big btn-anim" onClick={() => goTo(-1)} disabled={isDisabled}>CANCEL</button>
+
+
+      </div>
 
       <form className='product-item'>
         <div className='product-item-box' data-admin={true}>
@@ -58,6 +70,7 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
               <InputElement
                 type="text"
                 id="profession"
+                customLabel="Role"
                 value={changes.profession}
                 colorType={fieldColors.profession}
                 changeFn={(value) => {
@@ -74,9 +87,10 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
 
                   <textarea
                     className='input-anim'
-                    id='description'
+                    id='desc'
                     spellCheck='true'
                     autoComplete='off'
+                    placeholder=' '
                     style={{ ...labelCol, ...inputCol }}
                     value={changes.description}
                     onChange={(e) => {
@@ -85,17 +99,40 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
                         ({ ...prev, description: e.target.value }))
                     }}
                   />
-                  <label htmlFor="Description" style={{ ...labelCol }}>Description</label>
-                </div>
-                <div className='product-img'>
-                  {changes.img
-                    ? <img src={imgPath + changes.img} />
-                    : <img src={`${imgPath}placeholder.png`} />
-                  }
+                  <label htmlFor="desc" style={{ ...labelCol }}>Description</label>
+                  <span className='error'>{msgs.description}</span>
                 </div>
 
+                <div className='img-and-input'>
+                  <div className='product-img'>
+
+                    <img src={findImg(changes.img)} />
+                  </div>
+
+                  <InputElement
+                    type="url"
+                    customLabel="image url"
+                    value={changes.img}
+                    colorType={fieldColors.img}
+                    changeFn={(value) => {
+                      setFieldColors(prev => ({ ...prev, img: null }))
+                      setChanges(prev => ({ ...prev, img: value }))
+                    }}
+                    keyDownFn={handleKeyDown}
+                  />
+                  <span className='error'>{msgs.img}</span>
+                </div>
+
+
+
+
+
+
+
               </div>
-              <span className='error'>{msgs.description}</span>
+
+
+
 
               <InputElement
                 type="number"
@@ -114,8 +151,6 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
         </div>
       </form >
 
-      <button type="button" className="btn-def btn-anim" onClick={saveOrchestrator} disabled={isDisabled}>Save</button>
-      <button className="btn-def btn-anim" onClick={() => goTo(-1)} disabled={isDisabled}>CANCEL</button>
 
     </main >
   )

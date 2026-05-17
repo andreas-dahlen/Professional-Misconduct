@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { loginSchema } from '../validation/schemas'
 import { toast } from 'sonner'
-import { useLoginHandler } from '../hooks/crudHandlers/useLoginHandler'
+import { useLoginHandler } from '../hooks/authHandlers/useLoginHandler'
 import { getLoginWarningMsg } from '../validation/messages'
 import { NavLink } from 'react-router'
-import { useGoogleHandler } from '../hooks/crudHandlers/useGoogleHandler'
+import { useGoogleHandler } from '../hooks/authHandlers/useGoogleHandler'
 import InputElement from '../components/products/InputElement'
-import { useAsyncAction } from '../hooks/useAsyncAction'
+import { useAsyncAction } from '../hooks/utils/useAsyncAction'
 
 export default function LoginPage() {
 
@@ -46,7 +46,6 @@ export default function LoginPage() {
   return (
     <main>
       <form className='login-form'>
-        <h1>Login</h1>
 
         <InputElement
           type="email"

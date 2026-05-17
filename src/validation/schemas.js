@@ -1,5 +1,6 @@
 import Joi from 'joi'
-import { nameErrorMessage, professionErrorMessage, descriptionErrorMessage, priceErrorMessage } from './messages'
+import { nameErrorMessage, professionErrorMessage, descriptionErrorMessage, priceErrorMessage, imgErrorMessage } from './messages'
+import { publicImages } from './publicImgs'
 
 export const loginSchema = Joi.object({
   email:
@@ -39,5 +40,15 @@ export const editSchema = Joi.object({
     .integer()
     .max(9999)
     .required()
-    .messages(priceErrorMessage)
+    .messages(priceErrorMessage),
+  img: Joi.string()
+    .custom((value, helpers) => {
+      if (!value) return value
+      if (value.startsWith('https://')) return value
+      if (publicImages.includes(value)) return value
+      return helpers.error('string.invalidImg')
+    })
+    .optional()
+    .allow('')
+    .messages(imgErrorMessage)
 })

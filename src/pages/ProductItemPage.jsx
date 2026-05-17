@@ -1,4 +1,4 @@
-import { useFindProduct } from '../hooks/useFindProduct'
+import { useFindProduct } from '../hooks/utils/useFindProduct'
 import ProductItem from '../components/products/ProductItem'
 import ProductError from '../components/products/ProductError'
 

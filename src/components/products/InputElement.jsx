@@ -1,10 +1,9 @@
-import { useColorStyle } from '../../hooks/useColorStyle'
+import { useColorStyle } from '../../hooks/utils/useColorStyle'
 
 export default function InputElement({ value, type, id, changeFn, keyDownFn, inputClass, wrapperClass, customLabel, autoComplete, colorType, override, setOverride }) {
 
 
   const { validationInputCol, validationLabelCol } = useColorStyle()
-
 
   const effectiveType = override ? null : colorType
 

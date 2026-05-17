@@ -1,5 +1,5 @@
 import { useParams } from 'react-router'
-import { useProductStore } from './storeHooks/useProductStore'
+import { useProductStore } from '../storeHooks/useProductStore'
 
 export function useFindProduct() {
   const path = useParams()

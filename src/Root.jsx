@@ -1,7 +1,7 @@
 import Header from './components/base/Header';
 import { Outlet } from 'react-router';
 import Footer from './components/base/Footer';
-import useScrollToTop from './hooks/useScrollToTop';
+import useScrollToTop from './hooks/utils/useScrollToTop';
 import { usePopulateStore } from './hooks/storeHooks/usePopulateStore';
 import { Toaster } from 'sonner';
 import './styles/index.css'
@@ -14,6 +14,7 @@ export default function Root() {
     <>
 
       <Toaster
+        className='toaster-box'
         position="top-center"
         duration={Infinity}
         richColors

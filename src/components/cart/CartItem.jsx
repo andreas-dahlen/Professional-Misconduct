@@ -1,4 +1,4 @@
-import { imgPath } from '../../data/settings'
+import { findImg } from '../../hooks/utils/findImg'
 import { useCartQuantity } from '../../hooks/storeHooks/useCartQuantity'
 import { useCartStore } from '../../hooks/storeHooks/useCartStore'
 
@@ -15,7 +15,7 @@ export default function CartItem({ item }) {
       <div className='cart-row'>
 
         <div className='product-img'>
-          <img src={imgPath + item.img} />
+          <img src={findImg(item.img)} />
         </div>
 
         <div className='cart-content'>

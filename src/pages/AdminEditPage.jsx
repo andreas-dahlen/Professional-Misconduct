@@ -1,10 +1,10 @@
-import { useFindProduct } from '../hooks/useFindProduct'
+import { useFindProduct } from '../hooks/utils/useFindProduct'
 import { useState } from 'react'
 
 import ProductForm from '../components/products/ProductForm'
 import { useEditProductHandler } from '../hooks/crudHandlers/useEditProductHandler'
 import ProductError from '../components/products/ProductError'
-import { useAsyncAction } from '../hooks/useAsyncAction'
+import { useAsyncAction } from '../hooks/utils/useAsyncAction'
 
 export default function AdminEditPage() {
 

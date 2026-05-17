@@ -79,10 +79,6 @@
     align-items: normal;
     padding: 0;
     border-radius: 0 0 30px 30px;
-
-    h2 {
-      /* padding-top: 10px; */
-    }
   }
 
   .product-img {

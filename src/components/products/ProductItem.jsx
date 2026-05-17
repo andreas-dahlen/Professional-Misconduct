@@ -1,4 +1,4 @@
-import { imgPath } from '../../data/settings'
+import { findImg } from '../../hooks/utils/findImg'
 import { useUserStore } from '../../hooks/storeHooks/useUserStore'
 import { useCartStore } from '../../hooks/storeHooks/useCartStore'
 import { useCartQuantity } from '../../hooks/storeHooks/useCartQuantity'
@@ -21,7 +21,7 @@ export default function ProductItem({ prod }) {
               <h1>{prod.name}</h1>
               <h3>{prod.profession}</h3>
               <div className='product-img'>
-                <img src={imgPath + prod.img} />
+                <img src={findImg(prod.img)} />
               </div>
               <div className='text-bg-box'>
 

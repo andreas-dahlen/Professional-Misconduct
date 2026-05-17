@@ -21,12 +21,6 @@
 
 .input-slim {
   max-width: 550px;
-
-  @media (max-width: 625px) {
-    margin-left: 30px;
-    margin-right: 30px;
-
-  }
 }
 
 .product-card-bg {
@@ -140,6 +134,10 @@
   }
 }
 
+.card-bg-admin {
+  box-shadow: 0px 0px 20px var(--red);
+}
+
 .product-card {
   border-left: 15px solid var(--green-gray);
   border-right: 15px solid var(--green-gray);
@@ -213,6 +211,8 @@
   text-align: left;
   filter: drop-shadow(2px 2px 4px black);
   width: auto;
+  line-height: 2rem;
+
 
   @media (max-width: 600px) {
     text-align: center;
@@ -221,7 +221,7 @@
 
 .product-img {
   flex: 1;
-  height: 300px;
+  height: 200px;
   overflow: hidden;
   z-index: 0;
 

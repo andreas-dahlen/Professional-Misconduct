@@ -1,7 +1,7 @@
 import { getDocs, collection, getDoc, doc, setDoc, addDoc, deleteDoc } from 'firebase/firestore'
 import { dataBase } from './fireData'
 import { errorHandling } from './errorHandling'
-import { defaultIdSort } from '../hooks/useSort'
+import { defaultIdSort } from '../hooks/utils/useSort'
 
 export async function getDBProducts() {
   const productCollectionRef = collection(dataBase, 'products')
@@ -91,9 +91,9 @@ export async function addProduct(prod) {
   try {
     const newProdSnap = await addDoc(docCollection, {
       ...prod,
-      img: 'placeholder.png',
+      img: prod.img ?? 'placeholder.png',
     })
-    return { ...prod, img: 'placeholder.png', uid: newProdSnap.id }
+    return { ...prod, img: prod.img ?? 'placeholder.png', uid: newProdSnap.id }
 
   } catch (error) {
     console.error("something went wrong creating a product", error)

@@ -1,9 +1,9 @@
-import { useFindProduct } from '../hooks/useFindProduct'
+import { useFindProduct } from '../hooks/utils/useFindProduct'
 import ProductItem from '../components/products/ProductItem'
 import { NavLink } from 'react-router'
 import { useDeleteProductHandler } from '../hooks/crudHandlers/useDeleteProductHandler'
 import ProductError from '../components/products/ProductError.jsx'
-import { useAsyncAction } from '../hooks/useAsyncAction.js'
+import { useAsyncAction } from '../hooks/utils/useAsyncAction.js'
 import YesNoPopup from '../components/products/YesNoPopup.jsx'
 import { useState } from 'react'
 

@@ -49,7 +49,7 @@ export const backupProductsList = [
   },
   {
     id: 7,
-    name: "Burning Calander",
+    name: "Burning Calender",
     profession: "Project Manager",
     img: "calanderProductmanager.png",
     description: "Comes with a calendar that is actively, visibly on fire. Milestones missed. Deadlines mythical. Roadmap theoretical. Confidence completely unshaken. Retrospective scheduled for never.",

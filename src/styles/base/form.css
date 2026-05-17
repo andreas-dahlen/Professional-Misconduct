@@ -15,7 +15,28 @@ form {
 
     .img-and-text {
       margin-top: 30px;
+      /* flex: 1; */
+      /* overflow: hidden; */
+      /* z-index: 0; */
       /* margin-bottom: 10px; */
+
+      @media (min-width: 600px) {
+        height: 380px;
+
+      }
+
+      .img-and-input {
+
+        .product-img {
+
+          max-height: 240px;
+        }
+
+
+        img {
+          max-height: 240px;
+        }
+      }
     }
 
     span {
@@ -43,7 +64,7 @@ form {
     margin-top: 0;
 
     label {
-      top: -60px;
+      top: 10px;
     }
 
     @media (max-width: 600px) {
@@ -69,11 +90,3 @@ form {
     }
   }
 }
-
-/* resize — controls the drag handle: none, horizontal, vertical, both
-overflow-y — scrollbar behavior when content overflows
-line-height — important for readability since textareas are multiline
-white-space / word-wrap — how text wraps
-scrollbar-width / scrollbar-color — style the scrollbar (Firefox native, Chrome needs ::-webkit-scrollbar)
-
-the drag resize handle in the bottom-right corner is the most "textarea specific" thing — most designs just do resize: none and set a fixed or min/max height. */
