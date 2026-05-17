@@ -34,6 +34,7 @@
 }
 
 .confirm-popup {
+  text-align: center;
   background: radial-gradient(var(--green), var(--green-gray));
   border-radius: 20px;
   padding: 30px;

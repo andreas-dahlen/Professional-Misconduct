@@ -10,7 +10,7 @@ export default function CartItem({ item }) {
 
   return (
 
-    <article id={`product-${item.id}`} className='cart-card cart-card-anim'>
+    <article id={`product-${item.id}`} className='cart-card'>
 
       <div className='cart-row'>
 

@@ -5,20 +5,12 @@ form {
     flex-direction: column;
     justify-content: flex-start;
 
-    /* .input-wrapper:first-child {
-      margin: 20px;
-    } */
-
     .input-wrapper {
       margin: 30px 0 0 0;
     }
 
     .img-and-text {
       margin-top: 30px;
-      /* flex: 1; */
-      /* overflow: hidden; */
-      /* z-index: 0; */
-      /* margin-bottom: 10px; */
 
       @media (min-width: 600px) {
         height: 380px;

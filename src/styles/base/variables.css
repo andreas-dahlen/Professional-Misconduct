@@ -37,7 +37,6 @@
 
   --box-shadow-hover: 0px 0px 30px 0px var(--green-fade);
 
-  /* --def-box-shadow-no-color: 2px 2px 20px 2px; */
   --def-focus-outline: 3px solid var(--green-bright);
 
   --box-shadow-clicked: 0px 0px 10px 1px var(--green-bright);

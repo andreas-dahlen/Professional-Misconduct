@@ -45,7 +45,6 @@ export async function getUserInfo(loginInfo) {
   try {
     const userSnapshot = await getDoc(userDocRef)
     if (!userSnapshot.exists()) return null
-    //TODO change to isAdmin everywhere! :D
     const isAdmin = userSnapshot.data()?.admin ?? false
     return {
       email: loginInfo.email,

@@ -18,7 +18,7 @@ export default function InputElement({ value, type, id, changeFn, keyDownFn, inp
         placeholder=' '
         value={value}
         autoComplete={autoComplete || 'off'}
-        className={`def-input input-anim ${inputClass || ''}`}
+        className={`input-anim ${inputClass || ''}`}
         style={{ ...inputCol, ...labelCol }}
         onChange={(e) => {
           { colorType ? setOverride?.(true) : '' }

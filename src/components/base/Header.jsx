@@ -42,7 +42,7 @@ export default function Header() {
       <nav className={!atHome ? 'header-green' : ''}>
 
         <div className={`header-left ${user ? 'header-left-logged-in' : ''}`}>
-          <NavLink to='/' className="navlink-logo-h logo-anim" tabIndex={atHome ? -1 : 0} data-home={atHome}>
+          <NavLink to='/' className="navlink-logo-h" tabIndex={atHome ? -1 : 0} data-home={atHome}>
             <img src={logo} className="logo" alt="logo of Professional Misconduct" />
           </NavLink>
 
@@ -84,7 +84,7 @@ export default function Header() {
           </Hamburger>}
         </div>
 
-        <NavLink to={-1} style={atHome ? { display: "none" } : null} className="navlink-back-btn logo-anim">
+        <NavLink to={-1} style={atHome ? { display: "none" } : null} className="navlink-back-btn">
           <BackBtn />
         </NavLink>
 

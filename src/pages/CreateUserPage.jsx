@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { loginSchema } from '../validation/schemas'
 import { toast } from 'sonner'
+import { loginSchema } from '../validation/schemas'
 import { getLoginWarningMsg } from '../validation/messages'
 import { useCreateUserHandler } from '../hooks/crudHandlers/useCreateUserHandler'
-import InputElement from '../components/products/InputElement'
 import { useAsyncAction } from '../hooks/utils/useAsyncAction'
+import InputElement from '../components/products/InputElement'
 
 export default function CreateUserPage() {
   const [email, setEmail] = useState('')

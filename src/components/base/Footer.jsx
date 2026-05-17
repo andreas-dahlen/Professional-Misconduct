@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <>
       <footer>
-        <NavLink to='/' className="navlink-logo-f logo-anim"
+        <NavLink to='/' className="navlink-logo-f"
           data-home={atHome} tabIndex={atHome ? -1 : 0}>
           <img src={logo} className="logo" alt="logo of Professional Misconduct" />
         </NavLink>

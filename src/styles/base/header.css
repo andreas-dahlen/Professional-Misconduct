@@ -21,12 +21,6 @@ nav {
   }
 }
 
-/* 1050 1225 */
-
-/* 1225 1390 */
-
-/* 720 1080 */
-
 .header-left,
 .header-right {
   display: flex;
@@ -117,7 +111,6 @@ nav {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  /* margin: 0 15px 0 15px; */
 
   p {
     padding-top: 4px;

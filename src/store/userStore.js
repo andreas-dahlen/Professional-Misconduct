@@ -21,7 +21,6 @@ export const userStore = create(
       },
       setIsAdmin: (boolean) => {
         set(s => {
-          // s.isAdmin = uid === "temporary uid can be set here"
           s.isAdmin = boolean
         })
       }

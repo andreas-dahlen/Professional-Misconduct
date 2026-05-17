@@ -232,24 +232,6 @@
   }
 }
 
-/* .drop-down {
-  button {
-    background: hotpink;
-
-    transition: transform 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.03);
-    }
-
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      border: 4px solid var(--green);
-    }
-  }
-} */
-
 .btn-add.btn-anim {
   transition: var(--btn-def-tranf);
 
@@ -301,8 +283,3 @@
 .btn-anim.active {
   pointer-events: none;
 }
-
-/* .disabled {
-  pointer-events: none;
-  color: var(--text-grayed);
-} */

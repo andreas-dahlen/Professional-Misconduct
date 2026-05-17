@@ -122,17 +122,7 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
                   />
                   <span className='error'>{msgs.img}</span>
                 </div>
-
-
-
-
-
-
-
               </div>
-
-
-
 
               <InputElement
                 type="number"
@@ -150,8 +140,6 @@ export default function ProductForm({ changes, setChanges, onSave, isDisabled })
           </div>
         </div>
       </form >
-
-
     </main >
   )
 }

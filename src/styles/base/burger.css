@@ -50,8 +50,6 @@
     margin-top: -40px;
     width: clamp(160px, 100vw - 420px, 230px);
     background: radial-gradient(circle, var(--fade) 59%, transparent 0%);
-    /* min-width: 160px; at 580 */
-    /* max-width: 230px;  at 650*/
   }
 
   .burger-btn-wrapper.burger-btn {
@@ -64,16 +62,12 @@
       display: none;
     }
   }
-
-  /* 650  0 */
-  /* 980  */
 }
 
 .burger-left,
 .burger-right {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   margin-left: clamp(0px, 12.1vw - 79px, 40px);
   margin-right: clamp(0px, 12.1vw - 79px, 40px);
 

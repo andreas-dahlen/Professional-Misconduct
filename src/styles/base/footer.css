@@ -17,7 +17,6 @@ footer {
 .navlink-logo-f {
   position: absolute;
   bottom: 160px;
-  /* width: clamp(250px, 25vw, 300px); */
   width: 250px;
   display: flex;
   padding: 10px;

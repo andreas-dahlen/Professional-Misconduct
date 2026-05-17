@@ -18,7 +18,7 @@ export default function Hamburger({ setIsBurgered, isBurgered, user, totalItems 
       <div className='burger-space'>
 
         <div className='absolute-logo'>
-          <NavLink to='/' className="navlink-logo-h logo-anim" tabIndex={atHome ? -1 : 0} data-home={atHome}>
+          <NavLink to='/' className="navlink-logo-h" tabIndex={atHome ? -1 : 0} data-home={atHome}>
             <img src={logo} className="logo" alt="logo of Professional Misconduct" />
           </NavLink>
 
@@ -38,7 +38,7 @@ export default function Hamburger({ setIsBurgered, isBurgered, user, totalItems 
           </div>
 
           <div className='hamburger-img'>
-            <NavLink to='/' className="navlink-logo-h logo-anim" tabIndex={atHome ? -1 : 0} data-home={atHome}>
+            <NavLink to='/' className="navlink-logo-h" tabIndex={atHome ? -1 : 0} data-home={atHome}>
               <img src={logo} className="logo" alt="logo of Professional Misconduct" />
             </NavLink>
           </div>

@@ -14,7 +14,7 @@ export default function FrontPage() {
 
         <NavLink to="/products" role="button" className="btn-big btn-front-page btn-anim">Products</NavLink>
 
-        <p className='quote'>“It has all the essentials for the <br /> professionally unhinged.” - Bob</p>
+        <p>“It has all the essentials for the <br /> professionally unhinged.” - Bob</p>
       </main>
 
     </>

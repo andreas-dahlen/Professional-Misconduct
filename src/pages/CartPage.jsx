@@ -1,15 +1,20 @@
+import { useState } from 'react'
+import { NavLink } from 'react-router'
 import { useCartStore } from '../hooks/storeHooks/useCartStore'
 import CartItem from '../components/cart/CartItem'
-import { NavLink } from 'react-router'
+import PaymentSuccess from '../components/products/PaymentSuccess'
 
 export default function CartPage() {
   const { cartItems, clearCart, totalPrice } = useCartStore()
 
+  const [paymentSuccess, setPaymentSuccess] = useState(false)
+
   const handlePayment = () => {
-    //TODO handle payment!
     clearCart()
+    setPaymentSuccess(true)
   }
 
+  if (paymentSuccess) return <PaymentSuccess />
   if (cartItems.length === 0) {
     return (
       <main className='cart-main'>

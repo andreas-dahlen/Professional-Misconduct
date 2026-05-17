@@ -1,11 +1,10 @@
-import ProductListItem from '../components/products/ProductListItem';
-import { useProductStore } from '../hooks/storeHooks/useProductStore';
 import { useState, useEffect } from 'react';
-
-import AdminProductControls from '../components/products/AdminProductControls';
 import { useColorStyle } from '../hooks/utils/useColorStyle';
+import { useProductStore } from '../hooks/storeHooks/useProductStore';
 import { useFilter } from '../hooks/utils/useFilter'
 import { useSort } from '../hooks/utils/useSort';
+import ProductListItem from '../components/products/ProductListItem';
+import AdminProductControls from '../components/products/AdminProductControls';
 import SortDropdown from '../components/products/SortDropdown';
 
 export default function ProductPage() {
